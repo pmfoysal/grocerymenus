@@ -14,6 +14,7 @@
          "@data/*": ["assets/data/*"],
          "@context/*": ["customs/contexts/*"],
          "@helper/*": ["customs/helpers/*"],
+         "@theme/*": ["customs/themes/*"],
          "@hook/*": ["customs/hooks/*"],
          "@auth/*": ["customs/auth/*"],
          "@utility/*": ["customs/utilities/*"],
