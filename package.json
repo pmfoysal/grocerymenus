@@ -32,6 +32,7 @@
       "type": "source-code",
       "url": "https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-pmfoysal"
    },
+   "cracoConfig": "./src/configs/craco.config.js",
    "dependencies": {
       "@craco/craco": "^6.4.3",
       "@iconify/react": "^3.2.1",
@@ -49,11 +50,11 @@
       "web-vitals": "^2.1.0"
    },
    "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject",
-      "deploy": "yarn run build && firebase deploy"
+      "start": "craco start",
+      "build": "craco build",
+      "test": "craco test",
+      "eject": "craco eject",
+      "deploy": "craco build && firebase deploy"
    },
    "eslintConfig": {
       "extends": [
