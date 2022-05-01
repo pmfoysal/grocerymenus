@@ -21,6 +21,12 @@ async function runDatabase() {
    try {
       await client.connect();
       const products = client.db('pmphas11').collection('products');
+
+      app.post('/product', async (req, res) => {
+         const newData = req.body;
+         const result = await products.insertOne(newData);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
