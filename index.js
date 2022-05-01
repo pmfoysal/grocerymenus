@@ -41,6 +41,16 @@ async function runDatabase() {
          const data = await products.findOne(query);
          res.send(data);
       });
+
+      app.put('/product/:id', async (req, res) => {
+         const id = req.params.id;
+         const newData = req.body;
+         const filter = {_id: ObjectId(id)};
+         const options = {upsert: true};
+         const update = {$set: newData};
+         const result = await products.updateOne(filter, update, options);
+         res.send(result);
+      });
    } finally {
       // await client.close();
    }
