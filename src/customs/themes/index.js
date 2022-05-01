@@ -20,8 +20,9 @@ const themes = {
          card1: '#fdeaea',
          card2: '#fad5d5',
          brdr: '#cccccc',
-         main: '#ffffff',
-         sub: '#f5f7f9',
+         page: '#ffffff',
+         shadow1: '',
+         shadow2: '',
       },
    },
    black: {
