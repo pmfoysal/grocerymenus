@@ -66,9 +66,9 @@ async function runDatabase() {
 runDatabase().catch(console.dir);
 
 app.get('/', (req, res) => {
-   res.send('Hellow from PmPhAs11 Server!');
+   res.send({status: 200, port, message: 'PmPhAs11 Server is Running...'});
 });
 
 app.listen(port, () => {
-   console.log(`Server Running... Port: ${port}`);
+   console.log(`PmPhAs11 Server Running... Port: ${port}`);
 });
