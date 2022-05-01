@@ -1,11 +1,11 @@
 import React from 'react';
 import Footer from '@baseComp/footer';
-import Backdrop from '@coreComp/backdrop';
+import Confirm from '@baseComp/confirm';
 
 export default function App() {
    return (
       <React.Fragment>
-         <Backdrop />
+         <Confirm />
          <Footer />
       </React.Fragment>
    );
