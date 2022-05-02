@@ -1,4 +1,6 @@
 import React from 'react';
+import ImgLoader from '@baseComp/imgLoader';
+import {useNavigate} from 'react-router-dom';
 import {
    BlogCardButton,
    BlogCardContainer,
@@ -7,8 +9,6 @@ import {
    BlogCardTags,
    BlogCardTitle,
 } from '@coreStyle/blogCard.styles';
-import ImgLoader from '@baseComp/imgLoader';
-import {useNavigate} from 'react-router-dom';
 
 export default function BlogCard() {
    const navigate = useNavigate();

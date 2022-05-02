@@ -3,6 +3,7 @@ import SetTitle from '@helper/setTitle';
 import {BlogsContainer, BlogsContent} from '@pageStyle/blogs.styles';
 import MainContainer from '@coreComp/mainContainer';
 import PageTitle from '@coreComp/pageTitle';
+import BlogCard from '@coreComp/blogCard';
 
 export default function Blogs() {
    return (
@@ -13,7 +14,15 @@ export default function Blogs() {
                <PageTitle>
                   latest <span>blogs!</span>
                </PageTitle>
-               <BlogsContent></BlogsContent>
+               <BlogsContent>
+                  <BlogCard />
+                  <BlogCard />
+                  <BlogCard />
+                  <BlogCard />
+                  <BlogCard />
+                  <BlogCard />
+                  <BlogCard />
+               </BlogsContent>
             </MainContainer>
          </BlogsContainer>
       </React.Fragment>

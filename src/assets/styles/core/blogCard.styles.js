@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const BlogCardContainer = styled.article`
-   width: 40rem;
+   width: 100%;
    overflow: hidden;
    padding: 2rem;
    border-radius: 2rem;
