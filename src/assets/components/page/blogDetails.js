@@ -1,18 +1,7 @@
+import SetTitle from '@helper/setTitle';
 import React from 'react';
-import {
-   BlogCardButton,
-   BlogCardContainer,
-   BlogCardDetails,
-   BlogCardPara,
-   BlogCardTags,
-   BlogCardTitle,
-} from '@coreStyle/blogCard.styles';
-import ImgLoader from '@baseComp/imgLoader';
-import {useNavigate} from 'react-router-dom';
 
-export default function BlogCard() {
-   const navigate = useNavigate();
-
+export default function BlogDetails() {
    const data = {
       _id: 1,
       author: 'pmfoysal',
@@ -24,27 +13,10 @@ export default function BlogCard() {
 
    const {_id, author, date, title, para, image} = data;
 
-   function clickHandler(id) {
-      return function () {
-         navigate(`/blogs/${id}`);
-         window.scrollTo({top: 0});
-      };
-   }
-
    return (
-      <BlogCardContainer>
-         <ImgLoader src={image} />
-         <BlogCardDetails>
-            <BlogCardTags>
-               <span className='date'>{new Date(date).toLocaleDateString(undefined, {dateStyle: 'full'})}</span>
-               &bull;
-               <span className='author'>@{author}</span>
-            </BlogCardTags>
-            <BlogCardTitle>{title}</BlogCardTitle>
-            <BlogCardPara>
-               {para.slice(0, 120) + '...'} <BlogCardButton onClick={clickHandler(_id)}>read more</BlogCardButton>
-            </BlogCardPara>
-         </BlogCardDetails>
-      </BlogCardContainer>
+      <React.Fragment>
+         <SetTitle title={'Blogs - ' + title} />
+         <h1>BlogDetails</h1>
+      </React.Fragment>
    );
 }
