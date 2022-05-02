@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const PageTitleContainer = styled.h1`
+   padding: 5rem 0;
    font-size: 4.5rem;
    line-height: 1;
    font-weight: 400;

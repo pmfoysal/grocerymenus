@@ -5,7 +5,7 @@ export const BlogCardContainer = styled.article`
    overflow: hidden;
    padding: 2rem;
    border-radius: 2rem;
-   background-color: aliceblue;
+   background-color: ${({theme}) => theme.back.card1};
 
    figure {
       border-radius: 1.5rem;
