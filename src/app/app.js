@@ -13,7 +13,7 @@ export default function App() {
          <Suspense fallback={<PageLoader />}>
             <Routes>
                <Route path='/blogs' element={<Blogs />} />
-               <Route path='/blogs/:urlId' element={<BlogDetails />} />
+               <Route path='/blog/:urlId' element={<BlogDetails />} />
             </Routes>
          </Suspense>
          <Footer />

@@ -26,7 +26,7 @@ export default function BlogCard() {
 
    function clickHandler(id) {
       return function () {
-         navigate(`/blogs/${id}`);
+         navigate(`/blog/${id}`);
          window.scrollTo({top: 0});
       };
    }

@@ -1,5 +1,9 @@
-import React, {useEffect, useRef} from 'react';
+import {Icon} from '@iconify/react';
 import SetTitle from '@helper/setTitle';
+import PageTitle from '@coreComp/pageTitle';
+import ImgLoader from '@baseComp/imgLoader';
+import React, {useEffect, useRef} from 'react';
+import MainContainer from '@coreComp/mainContainer';
 import {
    BlogDetailsContainer,
    BlogDetailsContent,
@@ -8,10 +12,6 @@ import {
    BlogDetailsLine,
    BlogDetailsTitle,
 } from '@pageStyle/blogDetails.styles';
-import MainContainer from '@coreComp/mainContainer';
-import PageTitle from '@coreComp/pageTitle';
-import ImgLoader from '@baseComp/imgLoader';
-import {Icon} from '@iconify/react';
 
 export default function BlogDetails() {
    const descRef = useRef();
@@ -26,7 +26,7 @@ export default function BlogDetails() {
       text: 'ami ami ami <h1>ami</h1> ami <br/> ami &bull; ami ami ami',
    };
 
-   const {_id, author, date, title, para, image, text} = data;
+   const {author, date, title, image, text} = data;
 
    useEffect(() => {
       descRef.current.innerHTML = text;
