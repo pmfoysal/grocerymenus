@@ -1,4 +1,5 @@
 import Footer from '@baseComp/footer';
+import Header from '@baseComp/header';
 import Toaster from '@baseComp/toaster';
 import React, {Suspense, lazy} from 'react';
 import PageLoader from '@baseComp/pageLoader';
@@ -20,7 +21,7 @@ const InventoryDetails = lazy(() => import('@pageComp/inventoryDetails'));
 export default function App() {
    return (
       <React.Fragment>
-         <Footer />
+         <Header />
          <Suspense fallback={<PageLoader />}>
             <Routes>
                <Route path='/' index element={<Home />} />
