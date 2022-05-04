@@ -3,7 +3,6 @@ import Toaster from '@baseComp/toaster';
 import React, {Suspense, lazy} from 'react';
 import PageLoader from '@baseComp/pageLoader';
 import {Route, Routes} from 'react-router-dom';
-import UserIcon from '@coreComp/userIcon';
 const Home = lazy(() => import('@pageComp/home'));
 const About = lazy(() => import('@pageComp/about'));
 const Blogs = lazy(() => import('@pageComp/blogs'));
@@ -22,12 +21,9 @@ export default function App() {
    return (
       <React.Fragment>
          <Footer />
-         <div style={{padding: '5rem 35rem'}}>
-            <UserIcon />
-         </div>
          <Suspense fallback={<PageLoader />}>
             <Routes>
-               <Route path='/' element={<Home />} />
+               <Route path='/' index element={<Home />} />
                <Route path='/about' element={<About />} />
                <Route path='/blogs' element={<Blogs />} />
                <Route path='/signin' element={<Signin />} />

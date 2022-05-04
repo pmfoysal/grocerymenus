@@ -75,7 +75,7 @@ export const UserIconWindowItem = styled.button`
    gap: 0.75rem;
    padding: 0.3rem 0;
    text-transform: capitalize;
-   color: ${({theme}) => theme.text.main.para};
+   color: ${({theme, hovered}) => (hovered ? theme.back.accent : theme.text.main.para)};
 
    svg {
       color: inherit;

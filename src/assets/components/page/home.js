@@ -1,5 +1,10 @@
 import React from 'react';
+import PageLink from '@coreComp/pageLink';
 
 export default function Home() {
-   return <h1 style={{fontSize: '3rem'}}>This is Home Page!</h1>;
+   return (
+      <div style={{padding: '8rem'}}>
+         <PageLink name='home' link='/' />
+      </div>
+   );
 }

@@ -53,7 +53,7 @@ export default function UserIcon() {
                      <Icon icon='fluent:receipt-add-24-filled' />
                      add item
                   </UserIconWindowItem>
-                  <UserIconWindowItem onClick={signoutHandler}>
+                  <UserIconWindowItem onClick={signoutHandler} hovered>
                      <Icon icon='fluent:sign-out-24-filled' />
                      signout
                   </UserIconWindowItem>
