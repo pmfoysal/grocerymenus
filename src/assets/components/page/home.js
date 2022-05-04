@@ -1,10 +1,10 @@
 import React from 'react';
-import PageLink from '@coreComp/pageLink';
+import NavLinks from '@baseComp/navLinks';
 
 export default function Home() {
    return (
       <div style={{padding: '8rem'}}>
-         <PageLink name='home' link='/' />
+         <NavLinks />
       </div>
    );
 }
