@@ -3,6 +3,7 @@ import Header from '@baseComp/header';
 import Toaster from '@baseComp/toaster';
 import React, {Suspense, lazy} from 'react';
 import PageLoader from '@baseComp/pageLoader';
+import MegaFooter from '@baseComp/megaFooter';
 import {Route, Routes} from 'react-router-dom';
 const Home = lazy(() => import('@pageComp/home'));
 const About = lazy(() => import('@pageComp/about'));
@@ -39,6 +40,7 @@ export default function App() {
                <Route path='/inventory/edit/:id' element={<EditInventory />} />
             </Routes>
          </Suspense>
+         <MegaFooter />
          <Footer />
          <Toaster />
       </React.Fragment>
