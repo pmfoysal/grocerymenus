@@ -27,7 +27,7 @@ export const AboutCardLeft = styled.div`
    &::after {
       content: '';
       width: 0.3rem;
-      height: 60%;
+      height: 50%;
       position: absolute;
       top: 50%;
       right: 0;
@@ -105,15 +105,16 @@ export const AboutCardPara = styled.p`
       text-transform: capitalize;
       line-height: 1;
       margin-bottom: 1.5rem;
+      padding-bottom: 2rem;
 
       &::after {
          content: '';
          position: absolute;
-         top: 50%;
-         transform: translateY(-50%);
-         left: calc(100% + 1rem);
-         height: 0.2rem;
-         width: 20rem;
+         bottom: 0;
+         left: 0;
+         height: 0.3rem;
+         width: 5rem;
+         border-radius: 1rem;
          background-color: ${({theme}) => theme.back.card2};
       }
    }
