@@ -42,7 +42,7 @@ export default function BlogCard() {
             </BlogCardTags>
             <BlogCardTitle>{title}</BlogCardTitle>
             <BlogCardPara>
-               {para.slice(0, 120) + '...'} <BlogCardButton onClick={clickHandler(_id)}>read more</BlogCardButton>
+               {para.slice(0, 140) + '...'} <BlogCardButton onClick={clickHandler(_id)}>read more</BlogCardButton>
             </BlogCardPara>
          </BlogCardDetails>
       </BlogCardContainer>

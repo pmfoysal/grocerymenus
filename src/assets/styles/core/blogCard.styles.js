@@ -28,7 +28,7 @@ export const BlogCardTags = styled.p`
    display: flex;
    align-items: center;
    gap: 0.5rem;
-   padding: 1.25rem 0;
+   padding: 1.5rem 0;
    color: ${({theme}) => theme.text.main.para};
    line-height: 1;
 
@@ -50,7 +50,7 @@ export const BlogCardTitle = styled.h1`
 `;
 
 export const BlogCardPara = styled.p`
-   margin-top: 1.25rem;
+   margin-top: 1.5rem;
    color: ${({theme}) => theme.text.main.para};
 `;
 

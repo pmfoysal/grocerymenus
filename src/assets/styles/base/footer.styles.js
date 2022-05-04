@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
    width: 100%;
-   background-color: ${({theme}) => theme.back.card2};
+   background-color: #170725;
    padding: 2.5rem;
 
    & > * {
@@ -16,7 +16,7 @@ export const FooterPara = styled.p`
    text-align: center;
    text-transform: capitalize;
    font-size: 1.5rem;
-   color: ${({theme}) => theme.text.main.para};
+   color: ${({theme}) => theme.text.sub.title};
 `;
 
 export const FooterLink = styled.a`
@@ -27,7 +27,7 @@ export const FooterLink = styled.a`
    margin-left: 0.5rem;
    padding: 0.25rem 0.5rem;
    border-radius: 0.75rem;
-   background-color: ${({theme}) => theme.back.page};
+   background-color: rgba(255, 255, 255, 0.85);
 
    &:hover {
       background-color: ${({theme}) => theme.back.accent};

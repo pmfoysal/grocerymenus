@@ -19,9 +19,7 @@ export default function Header() {
    return (
       <HeaderContainer>
          <MainContainer>
-            <Logo>
-               brand <span>name</span>
-            </Logo>
+            <Logo />
             <NavLinks />
             <HeaderButtons>
                {!user ? (
