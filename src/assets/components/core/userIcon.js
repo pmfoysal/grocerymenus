@@ -14,7 +14,7 @@ import {
 
 export default function UserIcon() {
    const navigate = useNavigate();
-   const [active, setActive] = useState(true);
+   const [active, setActive] = useState(false);
    const img = 'https://avatars.githubusercontent.com/u/79983010?v=4';
 
    function clickHandler() {

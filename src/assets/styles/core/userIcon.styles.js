@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export const UserIconContainer = styled.div`
@@ -11,19 +10,20 @@ export const UserIconImage = styled.img`
    width: 3.6rem;
    cursor: pointer;
    transition: 0.1s ease;
+   transform: scale(1.2);
 
    &:hover {
       opacity: 0.85;
    }
 
    &:active {
-      transform: scale(0.95);
+      transform: scale(1.1);
    }
 `;
 
 export const UserIconWindow = styled.div`
    position: absolute;
-   top: calc(100% + 1rem);
+   top: calc(100% + 1.5rem);
    right: 0;
    border-radius: 1.5rem;
    background-color: ${({theme}) => theme.back.page};
@@ -37,8 +37,8 @@ export const UserIconWindow = styled.div`
 `;
 
 export const UserIconWindowImg = styled.img`
-   height: 7rem;
-   width: 7rem;
+   height: 8rem;
+   width: 8rem;
    border-radius: 100%;
 `;
 
