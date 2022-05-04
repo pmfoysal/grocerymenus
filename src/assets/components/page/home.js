@@ -1,10 +1,12 @@
 import React from 'react';
-import NavLinks from '@baseComp/navLinks';
+import Logo from '@coreComp/logo';
 
 export default function Home() {
    return (
       <div style={{padding: '8rem'}}>
-         <NavLinks />
+         <Logo>
+            brand <span>name</span>
+         </Logo>
       </div>
    );
 }
