@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const BlogsContainer = styled.section`
    padding-bottom: 8rem;
+   background-color: ${({theme}) => theme.back.card0};
 `;
 
 export const BlogsContent = styled.div`

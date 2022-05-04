@@ -16,9 +16,10 @@ const themes = {
          },
       },
       back: {
-         accent: '#f08080',
-         card1: '#fdeaea',
-         card2: '#fad5d5',
+         accent: '#8a2be2',
+         card0: '#fdfbfe',
+         card1: '#f6edfc',
+         card2: '#d8b9f5',
          brdr: '#cccccc',
          page: '#ffffff',
          shadow1: '',

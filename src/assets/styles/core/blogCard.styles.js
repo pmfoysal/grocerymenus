@@ -5,7 +5,8 @@ export const BlogCardContainer = styled.article`
    overflow: hidden;
    padding: 2rem;
    border-radius: 2rem;
-   background-color: ${({theme}) => theme.back.card1};
+   background-color: ${({theme}) => theme.back.page};
+   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
 
    figure {
       border-radius: 1.5rem;
@@ -14,6 +15,10 @@ export const BlogCardContainer = styled.article`
       aspect-ratio: 2/1.3;
       overflow: hidden;
       background-color: white;
+   }
+
+   &:hover {
+      box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
    }
 `;
 

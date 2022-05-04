@@ -2,8 +2,14 @@ import styled from 'styled-components';
 import {css} from 'styled-components';
 
 export const HeaderContainer = styled.header`
-   background-color: ${({theme}) => theme.back.card1};
    padding: 2.5rem 0;
+   position: sticky;
+   top: 0;
+   left: 0;
+   z-index: 20;
+   background-color: rgba(255, 255, 255, 0.85);
+   backdrop-filter: blur(0.75rem);
+   box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.15);
 
    & > * {
       display: grid;
@@ -28,6 +34,7 @@ export const HeaderButton = styled.button`
    text-transform: capitalize;
    font-weight: 550;
    background-color: ${({theme}) => theme.back.accent};
+   color: ${({theme}) => theme.text.sub.head};
    border-radius: 10rem;
    transition: 0.1s ease;
 
@@ -44,9 +51,11 @@ export const HeaderButton = styled.button`
          ? css`
               background-color: transparent;
               border: 0.2rem solid ${({theme}) => theme.back.accent};
+              color: ${({theme}) => theme.text.main.head};
 
               &:hover {
                  background-color: ${({theme}) => theme.back.accent};
+                 color: ${({theme}) => theme.text.sub.head};
               }
            `
          : null}
