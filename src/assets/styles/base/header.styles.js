@@ -50,12 +50,12 @@ export const HeaderButton = styled.button`
       sub
          ? css`
               background-color: transparent;
-              border: 0.2rem solid ${({theme}) => theme.back.accent};
-              color: ${({theme}) => theme.text.main.head};
+              border: 0.2rem solid ${theme.back.accent};
+              color: ${theme.text.main.head};
 
               &:hover {
-                 background-color: ${({theme}) => theme.back.accent};
-                 color: ${({theme}) => theme.text.sub.head};
+                 background-color: ${theme.back.accent};
+                 color: ${theme.text.sub.head};
               }
            `
          : null}

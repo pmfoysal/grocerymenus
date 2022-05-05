@@ -12,6 +12,7 @@ const Signin = lazy(() => import('@pageComp/signin'));
 const Signup = lazy(() => import('@pageComp/signup'));
 const Forget = lazy(() => import('@pageComp/forget'));
 const Contact = lazy(() => import('@pageComp/contact'));
+const NotFound = lazy(() => import('@pageComp/notFound'));
 const Inventories = lazy(() => import('@pageComp/inventories'));
 const BlogDetails = lazy(() => import('@pageComp/blogDetails'));
 const AddInventory = lazy(() => import('@pageComp/addInventory'));
@@ -38,6 +39,7 @@ export default function App() {
                <Route path='/inventories/:user' element={<UserInventory />} />
                <Route path='/inventory/:id' element={<InventoryDetails />} />
                <Route path='/inventory/edit/:id' element={<EditInventory />} />
+               <Route path='*' element={<NotFound />} />
             </Routes>
          </Suspense>
          <MegaFooter />
