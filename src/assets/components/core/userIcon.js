@@ -1,6 +1,8 @@
+import '@config/firebase.config';
 import {Icon} from '@iconify/react';
 import image from '@image/user.png';
 import React, {useState} from 'react';
+import userSignout from '@auth/userSignout';
 import {useNavigate} from 'react-router-dom';
 import {
    UserIconContainer,
@@ -30,6 +32,7 @@ export default function UserIcon({user}) {
    }
 
    function signoutHandler() {
+      userSignout();
       setActive(!active);
    }
 
@@ -51,7 +54,7 @@ export default function UserIcon({user}) {
                      <Icon icon='fluent:receipt-cube-24-filled' />
                      all items
                   </UserIconWindowItem>
-                  <UserIconWindowItem onClick={linkHandler('/inventories/pmfoysal')}>
+                  <UserIconWindowItem onClick={linkHandler(`/inventories/${getEmailName(email)}`)}>
                      <Icon icon='fluent:receipt-bag-24-filled' />
                      my items
                   </UserIconWindowItem>
