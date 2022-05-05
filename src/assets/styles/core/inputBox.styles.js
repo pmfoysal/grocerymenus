@@ -1,7 +1,8 @@
-import {Icon} from '@iconify/react';
 import styled from 'styled-components';
 
-export const InputBoxContainer = styled.div``;
+export const InputBoxContainer = styled.div`
+   width: 100%;
+`;
 
 export const InputBoxInput = styled.input`
    height: 4.6rem;
@@ -15,6 +16,8 @@ export const InputBoxInput = styled.input`
    color: ${({theme}) => theme.text.main.head};
 
    &[data-text='true'] {
+      background-color: ${({theme}) => theme.back.page};
+
       & + p {
          top: 0.1rem;
          opacity: 1;
@@ -23,6 +26,7 @@ export const InputBoxInput = styled.input`
 
    &:focus {
       border-color: ${({theme}) => theme.back.accent};
+      background-color: ${({theme}) => theme.back.page};
 
       & + p {
          color: ${({theme}) => theme.text.sub.para};
@@ -48,5 +52,3 @@ export const InputBoxName = styled.p`
    line-height: 1;
    opacity: 0;
 `;
-
-export const InputBoxIcon = styled(Icon)``;

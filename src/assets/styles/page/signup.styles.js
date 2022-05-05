@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SignupContainer = styled.section`
-   background-color: ${({theme}) => theme.back.card0};
+   background-color: ${({theme}) => theme.back.page};
    padding-bottom: 8rem;
 `;
 
@@ -9,34 +9,20 @@ export const SignupContent = styled.article`
    padding: 8rem 0;
    border-radius: 3rem;
    overflow: hidden;
-
-   &::after {
-      content: '';
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.1);
-   }
-
-   & > img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-   }
+   background-color: ${({theme}) => theme.back.card1};
 `;
 
 export const SignupForm = styled.div`
-   width: 50rem;
-   padding: 3rem;
+   width: 45rem;
+   padding: 4rem 5rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
    background-color: rgba(255, 255, 255, 0.75);
-   backdrop-filter: blur(0.75rem);
    margin: 0 auto;
-   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
+   box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
    border-radius: 2rem;
    z-index: 2;
 `;
@@ -44,7 +30,6 @@ export const SignupForm = styled.div`
 export const SignupHead = styled.h1`
    font-size: 3rem;
    text-transform: none;
-   text-align: center;
    line-height: 1;
    color: ${({theme}) => theme.text.main.head};
 `;
@@ -52,15 +37,11 @@ export const SignupHead = styled.h1`
 export const SignupTitle = styled.p`
    font-size: 2rem;
    text-transform: capitalize;
-   text-align: center;
-   width: 100%;
    margin-bottom: 0.5rem;
    color: ${({theme}) => theme.text.main.para};
 `;
 
 export const SignupPara = styled.p`
-   text-align: center;
-   width: 100%;
    margin-top: 1rem;
    color: ${({theme}) => theme.text.main.para};
 
@@ -77,4 +58,20 @@ export const SignupPara = styled.p`
          transform: scale(0.95);
       }
    }
+`;
+
+export const SigninInputArea = styled.div`
+   padding: 3rem 0;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 2rem;
+`;
+
+export const SigninInputGroup = styled.span`
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 2rem;
 `;

@@ -1,12 +1,11 @@
-import {InputBoxContainer, InputBoxIcon, InputBoxInput, InputBoxName} from '@coreStyle/inputBox.styles';
 import React from 'react';
+import {InputBoxContainer, InputBoxInput, InputBoxName} from '@coreStyle/inputBox.styles';
 
-export default function InputBox({name, icon, type, handler}) {
+export default function InputBox({name, type, handler}) {
    return (
       <InputBoxContainer>
          <InputBoxInput type={type} onInput={handler} placeholder={name} spellCheck='false' autoComplete='off' required />
          <InputBoxName>{name}</InputBoxName>
-         <InputBoxIcon icon={icon} />
       </InputBoxContainer>
    );
 }
