@@ -15,15 +15,22 @@ import {
    SignupInputGroup,
    SignupButton,
 } from '@pageStyle/signup.styles';
+import validateText from '@utility/validateText';
+import validateEmail from '@utility/validateEmail';
+import validatePhone from '@utility/validatePhone';
+import emailPassSignup from '@auth/emailPassSignup';
+import validatePassword from '@utility/validatePassword';
+import {toast} from 'react-toastify';
 
 export default function Signup() {
    const [firstName, setFirstName] = useState('');
    const [lastName, setLastName] = useState('');
    const [email, setEmail] = useState('');
+   const [password, setPassword] = useState('');
    const [phone, setPhone] = useState('');
    const [address, setAddress] = useState('');
-   const [userName, setUserName] = useState('');
    const [profilePic, setProfilePic] = useState('');
+   const [accept, setAccept] = useState(false);
 
    function inputHandler(setter) {
       return event => {
@@ -33,7 +40,62 @@ export default function Signup() {
       };
    }
 
-   function signupHandler() {}
+   function checkboxHandler(event) {
+      setAccept(event.target.checked);
+   }
+
+   function validateInput() {
+      const firstNameOk = validateText(firstName, 'first name');
+      const lastNameOk = validateText(lastName, 'last name');
+      const emailOk = validateEmail(email);
+      const passwordOk = validatePassword(password);
+      const phoneOk = validatePhone(phone);
+      const addressOk = validateText(address, 'address');
+      const profilePicOk = validateText(profilePic, 'profile picture');
+
+      return {
+         firstNameOk,
+         lastNameOk,
+         emailOk,
+         phoneOk,
+         passwordOk,
+         addressOk,
+         profilePicOk,
+      };
+   }
+
+   function validateAccept() {
+      if (!accept) {
+         toast.error('Please accept our Terms & Conditions!', {autoClose: 3000});
+         return false;
+      }
+      return true;
+   }
+
+   function getInputData() {
+      return {
+         firstName,
+         lastName,
+         email,
+         password,
+         phone,
+         address,
+         profilePic,
+      };
+   }
+
+   function signupHandler() {
+      const data = getInputData();
+      const allOk = validateInput();
+      const acceptOk = validateAccept();
+      const {firstNameOk, lastNameOk, emailOk, passwordOk} = allOk;
+      const {phoneOk, addressOk, profilePicOk} = allOk;
+      const test1 = firstNameOk && lastNameOk && emailOk && passwordOk;
+      const test2 = phoneOk && addressOk && profilePicOk;
+      if (test1 && test2 && acceptOk) {
+         emailPassSignup(data);
+      }
+   }
 
    return (
       <SignupContainer>
@@ -57,10 +119,10 @@ export default function Signup() {
                      <InputBox name='profile pic' none type='text' handler={inputHandler(setProfilePic)} />
                      <SignupInputGroup>
                         <InputBox name='your phone' type='tel' handler={inputHandler(setPhone)} />
-                        <InputBox name='username' type='text' handler={inputHandler(setUserName)} />
+                        <InputBox name='password' type='password' handler={inputHandler(setPassword)} />
                      </SignupInputGroup>
                      <InputBox name='your address' type='text' handler={inputHandler(setAddress)} />
-                     <CheckBox>
+                     <CheckBox handler={checkboxHandler}>
                         Accept our <Link to='/terms'>Terms and Conditions!</Link>
                      </CheckBox>
                   </SignupInputArea>
