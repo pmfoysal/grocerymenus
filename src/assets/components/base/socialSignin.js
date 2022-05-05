@@ -2,6 +2,7 @@ import React from 'react';
 import SocialIcon from '@coreComp/socialIcon';
 import {SocialSigninContainer} from '@baseStyle/socialSignin.styles';
 import googleSignin from '@auth/googleSignin';
+import microsoftSignin from '@auth/microsoftSignin';
 
 export default function SocialSignin() {
    function googleHandler() {
@@ -9,7 +10,7 @@ export default function SocialSignin() {
    }
 
    function microsoftHandler() {
-      return false;
+      microsoftSignin();
    }
 
    function facebookHandler() {
