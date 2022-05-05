@@ -18,6 +18,12 @@ import {
 
 export default function Signup() {
    const [firstName, setFirstName] = useState('');
+   const [lastName, setLastName] = useState('');
+   const [email, setEmail] = useState('');
+   const [phone, setPhone] = useState('');
+   const [address, setAddress] = useState('');
+   const [userName, setUserName] = useState('');
+   const [profilePic, setProfilePic] = useState('');
 
    function inputHandler(setter) {
       return event => {
@@ -26,6 +32,8 @@ export default function Signup() {
          setter(value);
       };
    }
+
+   function signupHandler() {}
 
    return (
       <SignupContainer>
@@ -41,22 +49,22 @@ export default function Signup() {
                      Already have an account? <Link to='/signin'>Signin</Link>
                   </SignupPara>
                   <SignupInputArea>
-                     <InputBox name='your email' type='email' handler={inputHandler(setFirstName)} />
+                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} />
                      <SignupInputGroup>
                         <InputBox name='first name' type='text' handler={inputHandler(setFirstName)} />
-                        <InputBox name='last name' type='text' handler={inputHandler(setFirstName)} />
+                        <InputBox name='last name' type='text' handler={inputHandler(setLastName)} />
                      </SignupInputGroup>
-                     <InputBox name='profile pic' none type='text' handler={inputHandler(setFirstName)} />
+                     <InputBox name='profile pic' none type='text' handler={inputHandler(setProfilePic)} />
                      <SignupInputGroup>
-                        <InputBox name='your phone' type='tel' handler={inputHandler(setFirstName)} />
-                        <InputBox name='username' type='text' handler={inputHandler(setFirstName)} />
+                        <InputBox name='your phone' type='tel' handler={inputHandler(setPhone)} />
+                        <InputBox name='username' type='text' handler={inputHandler(setUserName)} />
                      </SignupInputGroup>
-                     <InputBox name='your address' type='text' handler={inputHandler(setFirstName)} />
+                     <InputBox name='your address' type='text' handler={inputHandler(setAddress)} />
                      <CheckBox>
                         Accept our <Link to='/terms'>Terms and Conditions!</Link>
                      </CheckBox>
                   </SignupInputArea>
-                  <SignupButton>signup</SignupButton>
+                  <SignupButton onClick={signupHandler}>signup</SignupButton>
                </SignupForm>
             </SignupContent>
          </MainContainer>
