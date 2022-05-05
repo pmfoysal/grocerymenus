@@ -1,5 +1,5 @@
 import {toast} from 'react-toastify';
-import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
+import {getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification} from 'firebase/auth';
 
 const auth = getAuth();
 
@@ -33,12 +33,10 @@ function updateUserProfile(data, id) {
    })
       .then(() => {
          const options = {
-            render: 'Your profile successfully updated!',
-            type: 'success',
-            isLoading: false,
-            autoClose: 3000,
+            render: 'Profile Updated! Now sending verification...',
          };
          toast.update(id, options);
+         verifyUserEmail(id);
       })
       .catch(error => {
          const options = {
@@ -49,4 +47,16 @@ function updateUserProfile(data, id) {
          };
          toast.update(id, options);
       });
+}
+
+function verifyUserEmail(id) {
+   sendEmailVerification(auth.currentUser).then(() => {
+      const options = {
+         render: 'Your account verification email sent!',
+         type: 'success',
+         isLoading: false,
+         autoClose: 3000,
+      };
+      toast.update(id, options);
+   });
 }
