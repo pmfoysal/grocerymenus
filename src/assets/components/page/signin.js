@@ -16,6 +16,7 @@ import {
    SignupButton,
 } from '@pageStyle/signup.styles';
 import {SigninCheckBoxGroup} from '@pageStyle/signin.styles';
+import SocialSignin from '@baseComp/socialSignin';
 
 export default function Signin() {
    const [firstName, setFirstName] = useState('');
@@ -50,6 +51,7 @@ export default function Signin() {
                      </SigninCheckBoxGroup>
                   </SignupInputArea>
                   <SignupButton>signin</SignupButton>
+                  <SocialSignin />
                </SignupForm>
             </SignupContent>
          </MainContainer>

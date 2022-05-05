@@ -4,7 +4,7 @@ import {SocialIconContainer} from '@coreStyle/socialIcon.styles';
 
 export default function SocialIcon({icon, handler}) {
    return (
-      <SocialIconContainer>
+      <SocialIconContainer onClick={handler}>
          <Icon icon={icon} />
       </SocialIconContainer>
    );
