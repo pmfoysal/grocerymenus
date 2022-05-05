@@ -31,7 +31,7 @@ export default function Signup() {
       <SignupContainer>
          <MainContainer>
             <PageTitle>
-               new <span>account</span>
+               signup <span>form</span>
             </PageTitle>
             <SignupContent>
                <SignupForm>
@@ -41,11 +41,12 @@ export default function Signup() {
                      Already have an account? <Link to='/signin'>Signin</Link>
                   </SignupPara>
                   <SignupInputArea>
+                     <InputBox name='your email' type='email' handler={inputHandler(setFirstName)} />
                      <SignupInputGroup>
                         <InputBox name='first name' type='text' handler={inputHandler(setFirstName)} />
                         <InputBox name='last name' type='text' handler={inputHandler(setFirstName)} />
                      </SignupInputGroup>
-                     <InputBox name='your email' type='email' handler={inputHandler(setFirstName)} />
+                     <InputBox name='profile pic' none type='text' handler={inputHandler(setFirstName)} />
                      <SignupInputGroup>
                         <InputBox name='your phone' type='tel' handler={inputHandler(setFirstName)} />
                         <InputBox name='username' type='text' handler={inputHandler(setFirstName)} />

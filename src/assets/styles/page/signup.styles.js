@@ -13,7 +13,7 @@ export const SignupContent = styled.article`
 `;
 
 export const SignupForm = styled.div`
-   width: 45rem;
+   width: 47rem;
    padding: 4rem 5rem;
    display: flex;
    align-items: center;

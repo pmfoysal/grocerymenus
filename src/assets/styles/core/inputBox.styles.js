@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {css} from 'styled-components';
 
 export const InputBoxContainer = styled.div`
    width: 100%;
@@ -33,6 +34,13 @@ export const InputBoxInput = styled.input`
          background-color: ${({theme}) => theme.back.accent};
       }
    }
+
+   ${({none}) =>
+      none
+         ? css`
+              text-transform: none;
+           `
+         : null}
 `;
 
 export const InputBoxName = styled.p`
