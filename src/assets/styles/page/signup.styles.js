@@ -60,7 +60,7 @@ export const SignupPara = styled.p`
    }
 `;
 
-export const SigninInputArea = styled.div`
+export const SignupInputArea = styled.div`
    padding: 3rem 0;
    width: 100%;
    display: flex;
@@ -69,9 +69,32 @@ export const SigninInputArea = styled.div`
    gap: 2rem;
 `;
 
-export const SigninInputGroup = styled.span`
+export const SignupInputGroup = styled.span`
    width: 100%;
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 2rem;
+`;
+
+export const SignupButton = styled.button`
+   height: 4.5rem;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 1.5rem;
+   text-transform: capitalize;
+   font-weight: 550;
+   background-color: ${({theme}) => theme.back.accent};
+   color: ${({theme}) => theme.text.sub.head};
+   border-radius: 10rem;
+   transition: 0.1s ease;
+
+   &:hover {
+      opacity: 0.85;
+   }
+
+   &:active {
+      transform: scale(0.95);
+   }
 `;
