@@ -36,7 +36,7 @@ export const SignupForm = styled.div`
    background-color: rgba(255, 255, 255, 0.75);
    backdrop-filter: blur(0.75rem);
    margin: 0 auto;
-   box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
    border-radius: 2rem;
    z-index: 2;
 `;
