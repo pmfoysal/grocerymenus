@@ -1,4 +1,5 @@
 import {Icon} from '@iconify/react';
+import image from '@image/user.png';
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {
@@ -12,10 +13,10 @@ import {
    UserIconWindowRole,
 } from '@coreStyle/userIcon.styles';
 
-export default function UserIcon() {
+export default function UserIcon({user}) {
    const navigate = useNavigate();
    const [active, setActive] = useState(false);
-   const img = 'https://avatars.githubusercontent.com/u/79983010?v=4';
+   const {displayName, photoURL, email, role} = user;
 
    function clickHandler() {
       setActive(!active);
@@ -32,14 +33,19 @@ export default function UserIcon() {
       setActive(!active);
    }
 
+   function getEmailName(email) {
+      const arr = email.split('@');
+      return arr[0];
+   }
+
    return (
       <UserIconContainer>
-         <UserIconImage onClick={clickHandler} src={img} alt='user' />
+         <UserIconImage onClick={clickHandler} src={photoURL || image} alt='user' />
          {active && (
             <UserIconWindow>
-               <UserIconWindowImg src={img} alt='user' />
-               <UserIconWindowName>foysal ahmmed</UserIconWindowName>
-               <UserIconWindowRole>react developer</UserIconWindowRole>
+               <UserIconWindowImg src={photoURL || image} alt='user' />
+               <UserIconWindowName>{displayName || getEmailName(email)}</UserIconWindowName>
+               <UserIconWindowRole>{role || 'not provided'}</UserIconWindowRole>
                <UserIconWindowMenu>
                   <UserIconWindowItem onClick={linkHandler('/inventories')}>
                      <Icon icon='fluent:receipt-cube-24-filled' />

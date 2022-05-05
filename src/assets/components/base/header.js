@@ -1,13 +1,14 @@
-import React from 'react';
 import Logo from '@coreComp/logo';
 import NavLinks from './navLinks';
+import React, {useContext} from 'react';
 import UserIcon from '@coreComp/userIcon';
 import {useNavigate} from 'react-router-dom';
 import MainContainer from '@coreComp/mainContainer';
+import {StoreContext} from '@context/storeProvider';
 import {HeaderButton, HeaderButtons, HeaderContainer} from '@baseStyle/header.styles';
 
 export default function Header() {
-   const user = false;
+   const {user} = useContext(StoreContext);
    const navigate = useNavigate();
 
    function clickHandler(link) {
@@ -22,7 +23,7 @@ export default function Header() {
             <Logo />
             <NavLinks />
             <HeaderButtons>
-               {!user ? (
+               {!user.uid ? (
                   <React.Fragment>
                      <HeaderButton onClick={clickHandler('/signin')} sub>
                         signin
@@ -30,7 +31,7 @@ export default function Header() {
                      <HeaderButton onClick={clickHandler('/signup')}>signup</HeaderButton>
                   </React.Fragment>
                ) : (
-                  <UserIcon />
+                  <UserIcon user={user} />
                )}
             </HeaderButtons>
          </MainContainer>
