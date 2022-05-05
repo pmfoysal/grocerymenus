@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom';
 import InputBox from '@coreComp/inputBox';
 import CheckBox from '@coreComp/checkBox';
 import PageTitle from '@coreComp/pageTitle';
+import SocialSignin from '@baseComp/socialSignin';
 import MainContainer from '@coreComp/mainContainer';
+import {SigninCheckBoxGroup, SigninOr, SigninWarning} from '@pageStyle/signin.styles';
 import {
    SignupContainer,
    SignupContent,
@@ -12,11 +14,8 @@ import {
    SignupHead,
    SignupPara,
    SignupInputArea,
-   SignupInputGroup,
    SignupButton,
 } from '@pageStyle/signup.styles';
-import {SigninCheckBoxGroup} from '@pageStyle/signin.styles';
-import SocialSignin from '@baseComp/socialSignin';
 
 export default function Signin() {
    const [firstName, setFirstName] = useState('');
@@ -51,7 +50,17 @@ export default function Signin() {
                      </SigninCheckBoxGroup>
                   </SignupInputArea>
                   <SignupButton>signin</SignupButton>
+                  <SigninOr>
+                     <span className='line'></span>
+                     <span className='text'>or</span>
+                     <span className='line'></span>
+                  </SigninOr>
                   <SocialSignin />
+                  <SigninWarning>
+                     <strong>Note: </strong>
+                     By signing in you agree our <Link to='/terms'>Terms and Conditions!</Link> Please read our{' '}
+                     <Link to='/privacy'>Privacy and Policy</Link> carefully.
+                  </SigninWarning>
                </SignupForm>
             </SignupContent>
          </MainContainer>
