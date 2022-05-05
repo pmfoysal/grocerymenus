@@ -4,6 +4,7 @@ import {SocialSigninContainer} from '@baseStyle/socialSignin.styles';
 import googleSignin from '@auth/googleSignin';
 import microsoftSignin from '@auth/microsoftSignin';
 import facebookSignin from '@auth/facebookSignin';
+import githubSignin from '@auth/githubSignin';
 
 export default function SocialSignin() {
    function googleHandler() {
@@ -19,7 +20,7 @@ export default function SocialSignin() {
    }
 
    function githubHandler() {
-      return false;
+      githubSignin();
    }
 
    return (
