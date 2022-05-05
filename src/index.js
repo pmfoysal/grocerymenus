@@ -1,6 +1,7 @@
 import React from 'react';
 import App from '@app/app';
 import '@commonStyle/reset.scss';
+import '@config/firebase.config';
 import ReactDOM from 'react-dom/client';
 import AppWrapper from '@helper/appWrapper';
 import 'react-toastify/dist/ReactToastify.css';
