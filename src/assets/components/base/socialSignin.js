@@ -3,6 +3,7 @@ import SocialIcon from '@coreComp/socialIcon';
 import {SocialSigninContainer} from '@baseStyle/socialSignin.styles';
 import googleSignin from '@auth/googleSignin';
 import microsoftSignin from '@auth/microsoftSignin';
+import facebookSignin from '@auth/facebookSignin';
 
 export default function SocialSignin() {
    function googleHandler() {
@@ -14,7 +15,7 @@ export default function SocialSignin() {
    }
 
    function facebookHandler() {
-      return false;
+      facebookSignin();
    }
 
    function githubHandler() {
