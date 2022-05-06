@@ -1,5 +1,8 @@
 import React from 'react';
+import SetTitle from '@helper/setTitle';
+import contactData from '@data/contactData';
 import PageTitle from '@coreComp/pageTitle';
+import ContactCard from '@coreComp/contactCard';
 import MainContainer from '@coreComp/mainContainer';
 import {
    ContactContainer,
@@ -10,8 +13,6 @@ import {
    ContactTouchCards,
    ContactTouchTitle,
 } from '@pageStyle/contact.styles';
-import SetTitle from '@helper/setTitle';
-import ContactCard from '@coreComp/contactCard';
 
 export default function Contact() {
    return (
@@ -30,8 +31,9 @@ export default function Contact() {
                         maiores error cumque dolor repellat quasi.
                      </ContactPara>
                      <ContactTouchCards>
-                        <ContactCard />
-                        <ContactCard />
+                        {contactData.map(data => (
+                           <ContactCard data={data} key={data.id} />
+                        ))}
                      </ContactTouchCards>
                   </ContactTouchArea>
                   <ContactFormArea></ContactFormArea>

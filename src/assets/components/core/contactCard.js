@@ -7,17 +7,7 @@ import {
    ContactCardTitle,
 } from '@coreStyle/contactCard.styles';
 
-export default function ContactCard() {
-   const data = {
-      icon: 'eva:phone-call-fill',
-      title: 'talk to sales',
-      para: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      button: {
-         name: 'contact sales',
-         link: '',
-      },
-   };
-
+export default function ContactCard({data}) {
    const {icon, title, para, button} = data;
 
    return (
