@@ -1,11 +1,13 @@
 import React from 'react';
+import useBlogs from '@hook/useBlogs';
 import SetTitle from '@helper/setTitle';
-import {BlogsContainer, BlogsContent} from '@pageStyle/blogs.styles';
-import MainContainer from '@coreComp/mainContainer';
-import PageTitle from '@coreComp/pageTitle';
 import BlogCard from '@coreComp/blogCard';
+import PageTitle from '@coreComp/pageTitle';
+import MainContainer from '@coreComp/mainContainer';
+import {BlogsContainer, BlogsContent} from '@pageStyle/blogs.styles';
 
 export default function Blogs() {
+   const [blogs] = useBlogs();
    return (
       <React.Fragment>
          <SetTitle title='Blogs - Latest Blogs Archived' />
@@ -15,13 +17,9 @@ export default function Blogs() {
                   latest <span>blogs!</span>
                </PageTitle>
                <BlogsContent>
-                  <BlogCard />
-                  <BlogCard />
-                  <BlogCard />
-                  <BlogCard />
-                  <BlogCard />
-                  <BlogCard />
-                  <BlogCard />
+                  {blogs.map(data => (
+                     <BlogCard data={data} key={data._id} />
+                  ))}
                </BlogsContent>
             </MainContainer>
          </BlogsContainer>

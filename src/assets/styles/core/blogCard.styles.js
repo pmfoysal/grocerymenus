@@ -52,15 +52,15 @@ export const BlogCardTitle = styled.h1`
 export const BlogCardPara = styled.p`
    margin-top: 1.5rem;
    color: ${({theme}) => theme.text.main.para};
-`;
 
-export const BlogCardButton = styled.button`
-   text-transform: capitalize;
-   color: ${({theme}) => theme.back.accent};
-   font-size: 1.5rem;
-   margin-left: 0.5rem;
+   button {
+      text-transform: capitalize;
+      color: ${({theme}) => theme.back.accent};
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
 
-   &:hover {
-      opacity: 0.85;
+      &:hover {
+         opacity: 0.85;
+      }
    }
 `;

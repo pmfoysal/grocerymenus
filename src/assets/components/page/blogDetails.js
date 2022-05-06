@@ -1,9 +1,10 @@
 import {Icon} from '@iconify/react';
 import SetTitle from '@helper/setTitle';
+import {useParams} from 'react-router-dom';
 import PageTitle from '@coreComp/pageTitle';
 import ImgLoader from '@baseComp/imgLoader';
-import React, {useEffect, useRef} from 'react';
 import MainContainer from '@coreComp/mainContainer';
+import React, {useEffect, useRef, useState} from 'react';
 import {
    BlogDetailsContainer,
    BlogDetailsContent,
@@ -15,48 +16,43 @@ import {
 
 export default function BlogDetails() {
    const descRef = useRef();
-
-   const data = {
-      _id: 1,
-      author: 'pmfoysal',
-      date: Date.now(),
-      title: 'When should you use NodeJS and when should you use MongoDB?',
-      para: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas dolor nemo architecto? Impedit, sapiente molestiae. Dignissimos, repudiandae similique. Dolorem exercitationem adipisci quibusdam quod et perferendis itaque ratione eos praesentium atque necessitatibus ea similique, corrupti eveniet dolores tempore quia beatae facere voluptatibus expedita ab laboriosam hic illum? Laborum nihil eveniet culpa quas, eaque minima? Sit magnam illo animi hic enim quo voluptate iste aut et nemo cum, laboriosam nesciunt voluptatibus accusamus. Id porro quo ab, eos nesciunt sit ratione? Tenetur officiis consequatur veniam impedit nihil mollitia, voluptatem aliquam, fuga perferendis at dicta saepe blanditiis commodi, molestias numquam omnis possimus quo iure!',
-      image: 'https://images.unsplash.com/photo-1648737119247-e93f56878edf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80',
-      text: 'ami ami ami <h1>ami</h1> ami <br/> ami &bull; ami ami ami',
-   };
-
-   const {author, date, title, image, text} = data;
+   const {id: blogId} = useParams();
+   const [blog, setBlog] = useState({});
+   const {author, date, title, image, body} = blog;
 
    useEffect(() => {
-      descRef.current.innerHTML = text;
-   }, [text]);
+      descRef.current.innerHTML = body || 'Amazing blog description goes here...';
+   }, [body]);
+
+   useEffect(() => {
+      const url = `https://pmphas11.herokuapp.com/blog/${blogId}`;
+   }, []);
 
    return (
       <React.Fragment>
-         <SetTitle title={'Blogs - ' + title} />
+         <SetTitle title={'Blogs - ' + (title || 'Amazing Blog Title Goes Here...')} />
          <BlogDetailsContainer>
             <MainContainer>
                <PageTitle>
                   blog <span>details!</span>
                </PageTitle>
                <BlogDetailsContent>
-                  <ImgLoader src={image} />
-                  <BlogDetailsTitle>{title}</BlogDetailsTitle>
+                  <ImgLoader src={image || 'https://raw.githubusercontent.com/pmfoysal/data/main/images/blog-001.jpg'} />
+                  <BlogDetailsTitle>{title || 'Amazing Blog Title Goes Here...'}</BlogDetailsTitle>
                   <BlogDetailsInfo>
                      <p>
                         <span>
                            <Icon icon='fa6-solid:calendar-check' />
                            Posted on:
                         </span>
-                        {new Date(date).toLocaleDateString(undefined, {dateStyle: 'full'})}
+                        {new Date(date || Date.now()).toLocaleDateString(undefined, {dateStyle: 'full'})}
                      </p>
                      <p>
                         <span>
                            <Icon icon='fa:user-circle-o' />
                            Author:
                         </span>
-                        @{author}
+                        @{author || 'unknown'}
                      </p>
                   </BlogDetailsInfo>
                   <BlogDetailsLine />
