@@ -13,6 +13,7 @@ import {
    BlogDetailsLine,
    BlogDetailsTitle,
 } from '@pageStyle/blogDetails.styles';
+import axios from 'axios';
 
 export default function BlogDetails() {
    const descRef = useRef();
@@ -26,7 +27,8 @@ export default function BlogDetails() {
 
    useEffect(() => {
       const url = `https://pmphas11.herokuapp.com/blog/${blogId}`;
-   }, []);
+      axios.get(url).then(result => setBlog(result.data));
+   }, [blogId]);
 
    return (
       <React.Fragment>

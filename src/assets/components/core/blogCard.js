@@ -1,14 +1,7 @@
-import React, {useEffect, useRef} from 'react';
 import ImgLoader from '@baseComp/imgLoader';
 import {useNavigate} from 'react-router-dom';
-import {
-   BlogCardButton,
-   BlogCardContainer,
-   BlogCardDetails,
-   BlogCardPara,
-   BlogCardTags,
-   BlogCardTitle,
-} from '@coreStyle/blogCard.styles';
+import React, {useEffect, useRef} from 'react';
+import {BlogCardContainer, BlogCardDetails, BlogCardPara, BlogCardTags, BlogCardTitle} from '@coreStyle/blogCard.styles';
 
 export default function BlogCard({data}) {
    const navigate = useNavigate();
@@ -22,7 +15,7 @@ export default function BlogCard({data}) {
          navigate(`/blog/${_id}`);
          window.scrollTo({top: 0});
       });
-   }, [body]);
+   }, [body, _id, navigate]);
 
    return (
       <BlogCardContainer>

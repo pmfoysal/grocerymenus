@@ -6,15 +6,14 @@ const auth = getAuth();
 export const StoreContext = createContext();
 
 export default function StoreProvider({children}) {
-   const deftUser = {};
-   const [store, setStore] = useState({user: deftUser});
+   const [store, setStore] = useState({user: {}});
 
    useEffect(() => {
       onAuthStateChanged(auth, user => {
          if (user) {
             setStore(prev => ({...prev, user}));
          } else {
-            setStore(prev => ({...prev, user: deftUser}));
+            setStore(prev => ({...prev, user: {}}));
          }
       });
    }, []);
