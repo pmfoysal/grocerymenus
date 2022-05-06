@@ -6,7 +6,7 @@ export const BlogCardContainer = styled.article`
    padding: 2rem;
    border-radius: 2rem;
    background-color: ${({theme}) => theme.back.page};
-   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
+   box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
 
    figure {
       border-radius: 1.5rem;
@@ -18,7 +18,7 @@ export const BlogCardContainer = styled.article`
    }
 
    &:hover {
-      box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.15);
    }
 `;
 

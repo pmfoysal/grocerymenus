@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MegaFooterContainer = styled.footer`
    padding: 8rem 0;
-   background-color: #f3e9fc;
+   background-color: ${({theme}) => theme.back.card1};
 
    & > * {
       display: grid;

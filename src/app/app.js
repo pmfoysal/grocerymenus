@@ -1,48 +1,40 @@
-import Footer from '@baseComp/footer';
 import Header from '@baseComp/header';
+import Private from '@helper/private';
+import React, {Suspense} from 'react';
 import Toaster from '@baseComp/toaster';
-import React, {Suspense, lazy} from 'react';
+import getPages from '@helper/getPages';
 import PageLoader from '@baseComp/pageLoader';
-import MegaFooter from '@baseComp/megaFooter';
 import {Route, Routes} from 'react-router-dom';
-const Home = lazy(() => import('@pageComp/home'));
-const About = lazy(() => import('@pageComp/about'));
-const Blogs = lazy(() => import('@pageComp/blogs'));
-const Signin = lazy(() => import('@pageComp/signin'));
-const Signup = lazy(() => import('@pageComp/signup'));
-const Forget = lazy(() => import('@pageComp/forget'));
-const Contact = lazy(() => import('@pageComp/contact'));
-const NotFound = lazy(() => import('@pageComp/notFound'));
-const Inventories = lazy(() => import('@pageComp/inventories'));
-const BlogDetails = lazy(() => import('@pageComp/blogDetails'));
-const AddInventory = lazy(() => import('@pageComp/addInventory'));
-const UserInventory = lazy(() => import('@pageComp/userInventory'));
-const EditInventory = lazy(() => import('@pageComp/editInventory'));
-const InventoryDetails = lazy(() => import('@pageComp/inventoryDetails'));
 
 export default function App() {
+   const {Home, About, Blogs, Signin, Signup, Forget, Contact} = getPages;
+   const {BlogDetails, Inventories, AddInventory, InventoryDetails} = getPages;
+   const {UserInventory, EditInventory, NotFound, Footer, MegaFooter} = getPages;
+
    return (
-      <Suspense fallback={<PageLoader />}>
+      <React.Fragment>
          <Header />
-         <Routes>
-            <Route path='/' index element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/blogs' element={<Blogs />} />
-            <Route path='/signin' element={<Signin />} />
-            <Route path='/signup' element={<Signup />} />
-            <Route path='/forget' element={<Forget />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/blog/:id' element={<BlogDetails />} />
-            <Route path='/inventories' element={<Inventories />} />
-            <Route path='/inventory/add' element={<AddInventory />} />
-            <Route path='/inventories/:user' element={<UserInventory />} />
-            <Route path='/inventory/:id' element={<InventoryDetails />} />
-            <Route path='/inventory/edit/:id' element={<EditInventory />} />
-            <Route path='*' element={<NotFound />} />
-         </Routes>
-         <MegaFooter />
-         <Footer />
-         <Toaster />
-      </Suspense>
+         <Suspense fallback={<PageLoader />}>
+            <Routes>
+               <Route path='/' index element={<Home />} />
+               <Route path='/about' element={<About />} />
+               <Route path='/blogs' element={<Blogs />} />
+               <Route path='/signin' element={<Signin />} />
+               <Route path='/signup' element={<Signup />} />
+               <Route path='/forget' element={<Forget />} />
+               <Route path='/contact' element={<Contact />} />
+               <Route path='/blog/:id' element={<BlogDetails />} />
+               <Route path='/inventories' element={<Private page={Inventories} />} />
+               <Route path='/inventory/add' element={<Private page={AddInventory} />} />
+               <Route path='/inventory/:id' element={<Private page={InventoryDetails} />} />
+               <Route path='/inventories/:user' element={<Private page={UserInventory} />} />
+               <Route path='/inventory/edit/:id' element={<Private page={EditInventory} />} />
+               <Route path='*' element={<NotFound />} />
+            </Routes>
+            <MegaFooter />
+            <Footer />
+            <Toaster />
+         </Suspense>
+      </React.Fragment>
    );
 }

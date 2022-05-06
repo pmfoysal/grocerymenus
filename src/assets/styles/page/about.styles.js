@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 
 export const AboutContainer = styled.section`
-   background-color: ${({theme}) => theme.back.card0};
+   background-color: ${({theme}) => theme.back.page};
    padding-bottom: 8rem;
+`;
+
+export const AboutContent = styled.div`
+   background-color: ${({theme}) => theme.back.card0};
+   padding: 8rem;
+   border-radius: 3rem;
 `;
 
 export const AboutCard = styled.article`
@@ -11,8 +17,9 @@ export const AboutCard = styled.article`
    padding: 4rem;
    border-radius: 2rem;
    background-color: ${({theme}) => theme.back.page};
-   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
+   box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
    display: flex;
+   flex-direction: column;
    align-items: center;
    gap: 4rem;
 `;
@@ -22,16 +29,17 @@ export const AboutCardLeft = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding-right: 4rem;
+   padding-bottom: 4rem;
 
    &::after {
       content: '';
-      width: 0.3rem;
-      height: 50%;
+      width: 20rem;
+      height: 0.3rem;
+      border-radius: 1rem;
       position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: ${({theme}) => theme.back.card2};
    }
 `;

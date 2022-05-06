@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, {useContext, useState} from 'react';
+import {Link, Navigate, useLocation} from 'react-router-dom';
 import InputBox from '@coreComp/inputBox';
 import CheckBox from '@coreComp/checkBox';
 import PageTitle from '@coreComp/pageTitle';
@@ -18,10 +18,13 @@ import {
 } from '@pageStyle/signup.styles';
 import {toast} from 'react-toastify';
 import emailPassSignin from '@auth/emailPassSignin';
+import {StoreContext} from '@context/storeProvider';
 
 export default function Signin() {
+   const {user} = useContext(StoreContext);
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
+   const location = useLocation();
 
    function inputHandler(setter) {
       return event => {
@@ -45,6 +48,11 @@ export default function Signin() {
       if (emailOk && passOk) {
          emailPassSignin({email, password});
       }
+   }
+
+   if (user.uid) {
+      const from = location?.state?.from?.pathname || '/';
+      return <Navigate to={from} replace />;
    }
 
    return (

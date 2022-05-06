@@ -1,9 +1,16 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {toast} from 'react-toastify';
 import InputBox from '@coreComp/inputBox';
 import CheckBox from '@coreComp/checkBox';
 import PageTitle from '@coreComp/pageTitle';
+import validateText from '@utility/validateText';
+import React, {useContext, useState} from 'react';
+import validateEmail from '@utility/validateEmail';
+import validatePhone from '@utility/validatePhone';
+import emailPassSignup from '@auth/emailPassSignup';
+import {StoreContext} from '@context/storeProvider';
 import MainContainer from '@coreComp/mainContainer';
+import validatePassword from '@utility/validatePassword';
+import {Link, Navigate, useLocation} from 'react-router-dom';
 import {
    SignupContainer,
    SignupContent,
@@ -15,14 +22,11 @@ import {
    SignupInputGroup,
    SignupButton,
 } from '@pageStyle/signup.styles';
-import validateText from '@utility/validateText';
-import validateEmail from '@utility/validateEmail';
-import validatePhone from '@utility/validatePhone';
-import emailPassSignup from '@auth/emailPassSignup';
-import validatePassword from '@utility/validatePassword';
-import {toast} from 'react-toastify';
 
 export default function Signup() {
+   const {user} = useContext(StoreContext);
+   const location = useLocation();
+
    const [firstName, setFirstName] = useState('');
    const [lastName, setLastName] = useState('');
    const [email, setEmail] = useState('');
@@ -95,6 +99,11 @@ export default function Signup() {
       if (test1 && test2 && acceptOk) {
          emailPassSignup(data);
       }
+   }
+
+   if (user.uid) {
+      const from = location?.state?.from?.pathname || '/';
+      return <Navigate to={from} replace />;
    }
 
    return (

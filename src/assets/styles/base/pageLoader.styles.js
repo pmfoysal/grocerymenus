@@ -8,6 +8,7 @@ export const PageLoaderContainer = styled.section`
    width: 100%;
    overflow: hidden;
    background-color: ${({theme}) => theme.back.page};
+   z-index: 15;
 
    & > * {
       display: flex;

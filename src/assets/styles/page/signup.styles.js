@@ -9,7 +9,7 @@ export const SignupContent = styled.article`
    padding: 8rem 0;
    border-radius: 3rem;
    overflow: hidden;
-   background-color: ${({theme}) => theme.back.card1};
+   background-color: ${({theme}) => theme.back.card0};
 `;
 
 export const SignupForm = styled.div`
