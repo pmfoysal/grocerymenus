@@ -22,29 +22,27 @@ const InventoryDetails = lazy(() => import('@pageComp/inventoryDetails'));
 
 export default function App() {
    return (
-      <React.Fragment>
+      <Suspense fallback={<PageLoader />}>
          <Header />
-         <Suspense fallback={<PageLoader />}>
-            <Routes>
-               <Route path='/' index element={<Home />} />
-               <Route path='/about' element={<About />} />
-               <Route path='/blogs' element={<Blogs />} />
-               <Route path='/signin' element={<Signin />} />
-               <Route path='/signup' element={<Signup />} />
-               <Route path='/forget' element={<Forget />} />
-               <Route path='/contact' element={<Contact />} />
-               <Route path='/blog/:id' element={<BlogDetails />} />
-               <Route path='/inventories' element={<Inventories />} />
-               <Route path='/inventory/add' element={<AddInventory />} />
-               <Route path='/inventories/:user' element={<UserInventory />} />
-               <Route path='/inventory/:id' element={<InventoryDetails />} />
-               <Route path='/inventory/edit/:id' element={<EditInventory />} />
-               <Route path='*' element={<NotFound />} />
-            </Routes>
-         </Suspense>
+         <Routes>
+            <Route path='/' index element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/blogs' element={<Blogs />} />
+            <Route path='/signin' element={<Signin />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/forget' element={<Forget />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/blog/:id' element={<BlogDetails />} />
+            <Route path='/inventories' element={<Inventories />} />
+            <Route path='/inventory/add' element={<AddInventory />} />
+            <Route path='/inventories/:user' element={<UserInventory />} />
+            <Route path='/inventory/:id' element={<InventoryDetails />} />
+            <Route path='/inventory/edit/:id' element={<EditInventory />} />
+            <Route path='*' element={<NotFound />} />
+         </Routes>
          <MegaFooter />
          <Footer />
          <Toaster />
-      </React.Fragment>
+      </Suspense>
    );
 }

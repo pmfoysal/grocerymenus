@@ -12,7 +12,7 @@ const contactData = [
    {
       id: 'contact-002',
       icon: 'fluent:chat-bubbles-question-24-filled',
-      title: 'contact customer support',
+      title: 'customer support',
       para: 'Contact here if you wantent to know about others information!',
       button: {
          name: 'contact support',

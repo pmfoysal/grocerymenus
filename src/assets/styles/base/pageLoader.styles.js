@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
 export const PageLoaderContainer = styled.section`
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100vh;
    width: 100%;
-   height: calc(100vh - 7.75rem);
+   overflow: hidden;
+   background-color: ${({theme}) => theme.back.page};
 
    & > * {
       display: flex;
