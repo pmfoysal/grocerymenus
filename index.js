@@ -21,6 +21,7 @@ async function runDatabase() {
    try {
       await client.connect();
       const products = client.db('pmphas11').collection('products');
+      const blogs = client.db('pmphas11').collection('blogs');
 
       app.post('/product', async (req, res) => {
          const newData = req.body;
@@ -57,6 +58,13 @@ async function runDatabase() {
          const query = {_id: ObjectId(id)};
          const result = await products.deleteOne(query);
          res.send(result);
+      });
+
+      app.get('/blogs', async (req, res) => {
+         const query = {};
+         const cursor = blogs.find(query);
+         const data = await cursor.toArray();
+         res.send(data);
       });
    } finally {
       // await client.close();
