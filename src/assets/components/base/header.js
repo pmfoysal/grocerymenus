@@ -21,7 +21,7 @@ export default function Header() {
       <HeaderContainer>
          <MainContainer>
             <Logo />
-            <NavLinks />
+            <NavLinks user={user} />
             <HeaderButtons>
                {!user.uid ? (
                   <React.Fragment>
