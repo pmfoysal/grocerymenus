@@ -1,10 +1,13 @@
-import React, {useContext, useState} from 'react';
-import {Link, Navigate, useLocation} from 'react-router-dom';
+import {toast} from 'react-toastify';
 import InputBox from '@coreComp/inputBox';
 import CheckBox from '@coreComp/checkBox';
 import PageTitle from '@coreComp/pageTitle';
+import React, {useContext, useState} from 'react';
 import SocialSignin from '@baseComp/socialSignin';
+import emailPassSignin from '@auth/emailPassSignin';
+import {StoreContext} from '@context/storeProvider';
 import MainContainer from '@coreComp/mainContainer';
+import {Link, Navigate, useLocation} from 'react-router-dom';
 import {SigninCheckBoxGroup, SigninOr, SigninWarning} from '@pageStyle/signin.styles';
 import {
    SignupContainer,
@@ -16,9 +19,6 @@ import {
    SignupInputArea,
    SignupButton,
 } from '@pageStyle/signup.styles';
-import {toast} from 'react-toastify';
-import emailPassSignin from '@auth/emailPassSignin';
-import {StoreContext} from '@context/storeProvider';
 
 export default function Signin() {
    const {user} = useContext(StoreContext);
@@ -28,15 +28,13 @@ export default function Signin() {
 
    function inputHandler(setter) {
       return event => {
-         const value = event.target.value;
-         event.target.setAttribute('data-text', Boolean(value));
-         setter(value);
+         setter(event.target.value);
       };
    }
 
    function validateInput(text, name) {
       if (!text) {
-         toast.error(`Please provide your ${name}!`, {autoClose: 3000});
+         toast.error(`Please provide the ${name}!`, {autoClose: 3000});
          return false;
       }
       return true;
@@ -69,8 +67,8 @@ export default function Signin() {
                      Don't have an account? <Link to='/signup'>Signup</Link>
                   </SignupPara>
                   <SignupInputArea>
-                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} />
-                     <InputBox name='password' none type='password' handler={inputHandler(setPassword)} />
+                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
+                     <InputBox name='password' none type='password' handler={inputHandler(setPassword)} value={password} />
                      <SigninCheckBoxGroup>
                         <CheckBox>Keep me signed in!</CheckBox>
                         <Link to='/forget'>forget password?</Link>

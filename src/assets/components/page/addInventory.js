@@ -1,7 +1,12 @@
 import logo from '@image/logo.svg';
-import React, {useContext, useRef, useState} from 'react';
+import InputBox from '@coreComp/inputBox';
 import PageTitle from '@coreComp/pageTitle';
+import MessageBox from '@coreComp/messageBox';
+import validateText from '@utility/validateText';
+import {StoreContext} from '@context/storeProvider';
+import validateNumber from '@utility/validateNumber';
 import MainContainer from '@coreComp/mainContainer';
+import React, {useContext, useRef, useState} from 'react';
 import {
    AddInventoryButton,
    AddInventoryButtons,
@@ -14,11 +19,6 @@ import {
    AddInventoryPara,
    AddInventoryTitle,
 } from '@pageStyle/addInventory.styles';
-import InputBox from '@coreComp/inputBox';
-import {StoreContext} from '@context/storeProvider';
-import MessageBox from '@coreComp/messageBox';
-import validateText from '@utility/validateText';
-import validateNumber from '@utility/validateNumber';
 
 export default function AddInventory() {
    const formRef = useRef();
@@ -33,9 +33,7 @@ export default function AddInventory() {
 
    function inputHandler(setter) {
       return event => {
-         const value = event.target.value;
-         event.target.setAttribute('data-text', Boolean(value));
-         setter(value);
+         setter(event.target.value);
       };
    }
 
@@ -60,17 +58,6 @@ export default function AddInventory() {
       setQuantity('');
       setSupplier('');
       setUnit('');
-
-      const inputs = formRef.current.querySelectorAll('input');
-      const textAreas = formRef.current.querySelectorAll('textarea');
-      inputs.forEach(input => {
-         input.value = '';
-         input.setAttribute('data-text', false);
-      });
-      textAreas.forEach(input => {
-         input.value = '';
-         input.setAttribute('data-text', false);
-      });
    }
 
    function validateInputs() {
@@ -116,21 +103,21 @@ export default function AddInventory() {
                   </AddInventoryPara>
                   <AddInventoryTitle>add new item</AddInventoryTitle>
                   <AddInventoryInputs ref={formRef}>
-                     <InputBox name='title' type='text' handler={inputHandler(setTitle)} />
+                     <InputBox name='title' type='text' handler={inputHandler(setTitle)} value={title} />
                      <AddInventoryInputGroup>
-                        <InputBox name='price' type='number' handler={inputHandler(setPrice)} />
-                        <InputBox name='measure' type='text' handler={inputHandler(setUnit)} />
+                        <InputBox name='price' type='number' handler={inputHandler(setPrice)} value={price} />
+                        <InputBox name='measure' type='text' handler={inputHandler(setUnit)} value={unit} />
                      </AddInventoryInputGroup>
-                     <InputBox name='image' type='text' handler={inputHandler(setImage)} />
+                     <InputBox name='image' type='text' handler={inputHandler(setImage)} value={image} />
                      <AddInventoryInputGroup>
-                        <InputBox name='supplier' type='text' handler={inputHandler(setSupplier)} />
-                        <InputBox name='quantity' type='number' handler={inputHandler(setQuantity)} />
+                        <InputBox name='supplier' type='text' handler={inputHandler(setSupplier)} value={supplier} />
+                        <InputBox name='quantity' type='number' handler={inputHandler(setQuantity)} value={quantity} />
                      </AddInventoryInputGroup>
-                     <MessageBox name='details' handler={inputHandler(setDetails)} />
+                     <MessageBox name='details' handler={inputHandler(setDetails)} value={details} />
                   </AddInventoryInputs>
                   <AddInventoryButtons>
                      <AddInventoryButton onClick={resetData} reset>
-                        delete
+                        reset
                      </AddInventoryButton>
                      <AddInventoryButton onClick={submitHandler}>submit</AddInventoryButton>
                   </AddInventoryButtons>

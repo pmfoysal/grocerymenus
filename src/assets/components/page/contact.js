@@ -21,13 +21,23 @@ import {
 
 export default function Contact() {
    const [name, setName] = useState('');
+   const [email, setEmail] = useState('');
+   const [address, setAddress] = useState('');
+   const [subject, setSubject] = useState('');
+   const [message, setMessage] = useState('');
 
    function inputHandler(setter) {
       return event => {
-         const value = event.target.value;
-         event.target.setAttribute('data-text', Boolean(value));
-         setter(value);
+         setter(event.target.value);
       };
+   }
+
+   function resetData() {
+      setName('');
+      setEmail('');
+      setAddress('');
+      setSubject('');
+      setMessage('');
    }
 
    return (
@@ -59,14 +69,16 @@ export default function Contact() {
                      </ContactPara>
                      <ContactForm>
                         <ContactFormInputGroup>
-                           <InputBox name='your name' type='text' handler={inputHandler(setName)} />
-                           <InputBox name='your email' type='email' handler={inputHandler(setName)} />
+                           <InputBox name='your name' type='text' handler={inputHandler(setName)} value={name} />
+                           <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
                         </ContactFormInputGroup>
-                        <InputBox name='your address' type='text' handler={inputHandler(setName)} />
-                        <InputBox name='your subject' type='text' handler={inputHandler(setName)} />
-                        <MessageBox name='your message' handler={inputHandler(setName)} />
+                        <InputBox name='your address' type='text' handler={inputHandler(setAddress)} value={address} />
+                        <InputBox name='your subject' type='text' handler={inputHandler(setSubject)} value={subject} />
+                        <MessageBox name='your message' handler={inputHandler(setMessage)} value={message} />
                         <ContactFormButtons>
-                           <ContactFormButton reset>reset</ContactFormButton>
+                           <ContactFormButton onClick={resetData} reset>
+                              reset
+                           </ContactFormButton>
                            <ContactFormButton>send</ContactFormButton>
                         </ContactFormButtons>
                      </ContactForm>

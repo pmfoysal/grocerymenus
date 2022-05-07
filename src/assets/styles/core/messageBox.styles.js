@@ -11,7 +11,7 @@ export const MessageBoxInput = styled.textarea`
    transition: 0.2s ease;
    color: ${({theme}) => theme.text.main.head};
 
-   &[data-text='true'] {
+   &[data-on='true'] {
       background-color: ${({theme}) => theme.back.page};
 
       & + p {

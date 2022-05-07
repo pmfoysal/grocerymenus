@@ -38,9 +38,7 @@ export default function Signup() {
 
    function inputHandler(setter) {
       return event => {
-         const value = event.target.value;
-         event.target.setAttribute('data-text', Boolean(value));
-         setter(value);
+         setter(event.target.value);
       };
    }
 
@@ -120,17 +118,17 @@ export default function Signup() {
                      Already have an account? <Link to='/signin'>Signin</Link>
                   </SignupPara>
                   <SignupInputArea>
-                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} />
+                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
                      <SignupInputGroup>
-                        <InputBox name='first name' type='text' handler={inputHandler(setFirstName)} />
-                        <InputBox name='last name' type='text' handler={inputHandler(setLastName)} />
+                        <InputBox name='first name' type='text' handler={inputHandler(setFirstName)} value={firstName} />
+                        <InputBox name='last name' type='text' handler={inputHandler(setLastName)} value={lastName} />
                      </SignupInputGroup>
-                     <InputBox name='profile pic' none type='text' handler={inputHandler(setProfilePic)} />
+                     <InputBox name='profile pic' none type='text' handler={inputHandler(setProfilePic)} value={profilePic} />
                      <SignupInputGroup>
-                        <InputBox name='your phone' type='tel' handler={inputHandler(setPhone)} />
-                        <InputBox name='password' type='password' handler={inputHandler(setPassword)} />
+                        <InputBox name='your phone' type='tel' handler={inputHandler(setPhone)} value={phone} />
+                        <InputBox name='password' type='password' handler={inputHandler(setPassword)} value={password} />
                      </SignupInputGroup>
-                     <InputBox name='your address' type='text' handler={inputHandler(setAddress)} />
+                     <InputBox name='your address' type='text' handler={inputHandler(setAddress)} value={address} />
                      <CheckBox handler={checkboxHandler}>
                         Accept our <Link to='/terms'>Terms and Conditions!</Link>
                      </CheckBox>

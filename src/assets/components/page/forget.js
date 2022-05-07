@@ -19,9 +19,7 @@ export default function Forget() {
 
    function inputHandler(setter) {
       return event => {
-         const value = event.target.value;
-         event.target.setAttribute('data-text', Boolean(value));
-         setter(value);
+         setter(event.target.value);
       };
    }
 
@@ -43,7 +41,7 @@ export default function Forget() {
                   <SignupTitle>hey, don't worry!</SignupTitle>
                   <SignupHead>Reset your Password</SignupHead>
                   <SignupInputArea>
-                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} />
+                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
                   </SignupInputArea>
                   <SignupButton onClick={resetHandler}>send reset email</SignupButton>
                </SignupForm>
