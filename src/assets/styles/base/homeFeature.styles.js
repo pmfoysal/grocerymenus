@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HomeFeatureContainer = styled.section`
    padding: 8rem;
-   margin: 8rem 0;
+   /* margin: 8rem 0; */
    background-color: ${({theme}) => theme.back.card0};
 `;
 

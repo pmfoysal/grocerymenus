@@ -5,6 +5,7 @@ export const SectionTitleContainer = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
+   margin: 8rem 0;
 `;
 
 export const SectionTitleText = styled.h1`
