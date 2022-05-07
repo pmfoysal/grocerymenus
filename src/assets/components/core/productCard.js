@@ -15,16 +15,28 @@ import {
    ProductCardTexts,
    ProductCardTitle,
 } from '@coreStyle/productCard.styles';
+import {useNavigate} from 'react-router-dom';
 
 export default function ProductCard({home}) {
    const stock = true;
+   const navigate = useNavigate();
+
+   function editHandler() {
+      navigate('/inventory/edit/idhere');
+   }
+
+   function updateHandler() {
+      navigate('/inventory/idhere');
+   }
+
+   function deleteHandler() {}
 
    return (
       <ProductCardContainer>
          <ImgLoader src={image} />
          <ProductCardTexts>
             <ProductCardTitle>spicy tomato</ProductCardTitle>
-            <ProductCardDesc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis!</ProductCardDesc>
+            <ProductCardDesc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis! (95)</ProductCardDesc>
             <ProductCardInfos>
                <ProductCardInfo>
                   <ProductCardPrice>
@@ -57,9 +69,15 @@ export default function ProductCard({home}) {
                </ProductCardInfo>
             </ProductCardInfos>
             <ProductCardButtons>
-               <ProductCardButton edit>edit</ProductCardButton>
-               <ProductCardButton>update</ProductCardButton>
-               {!home && <ProductCardButton danger>delete</ProductCardButton>}
+               <ProductCardButton onClick={editHandler} edit>
+                  edit
+               </ProductCardButton>
+               <ProductCardButton onClick={updateHandler}>update</ProductCardButton>
+               {!home && (
+                  <ProductCardButton onClick={deleteHandler} danger>
+                     delete
+                  </ProductCardButton>
+               )}
             </ProductCardButtons>
          </ProductCardTexts>
       </ProductCardContainer>
