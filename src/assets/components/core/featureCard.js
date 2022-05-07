@@ -1,5 +1,4 @@
 import React from 'react';
-import featureData from '@data/featureData';
 import {
    FeatureCardContainer,
    FeatureCardImage,
@@ -8,8 +7,7 @@ import {
    FeatureCardTitle,
 } from '@coreStyle/featureCard.styles';
 
-export default function FeatureCard() {
-   const data = featureData[0];
+export default function FeatureCard({data}) {
    const {image, title, para} = data;
    return (
       <FeatureCardContainer>
