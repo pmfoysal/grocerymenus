@@ -1,5 +1,30 @@
 import React from 'react';
+import PageTitle from '@coreComp/pageTitle';
+import ProductCard from '@coreComp/productCard';
+import MainContainer from '@coreComp/mainContainer';
+import {InventoriesContainer, InventoriesContent, InventoriesProducts} from '@pageStyle/inventories.styles';
 
 export default function Inventories() {
-   return <h1 style={{fontSize: '3rem'}}>This is Inventories Page!</h1>;
+   return (
+      <InventoriesContainer>
+         <MainContainer>
+            <PageTitle>
+               manage <span>inventories</span>
+            </PageTitle>
+            <InventoriesContent>
+               <InventoriesProducts>
+                  <ProductCard />
+                  <ProductCard />
+                  <ProductCard />
+                  <ProductCard />
+                  <ProductCard />
+                  <ProductCard />
+                  <ProductCard />
+                  <ProductCard />
+                  <ProductCard />
+               </InventoriesProducts>
+            </InventoriesContent>
+         </MainContainer>
+      </InventoriesContainer>
+   );
 }

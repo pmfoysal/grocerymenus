@@ -17,7 +17,7 @@ import {
 } from '@coreStyle/productCard.styles';
 
 export default function ProductCard({home}) {
-   const stock = false;
+   const stock = true;
 
    return (
       <ProductCardContainer>

@@ -120,7 +120,7 @@ export const ProductCardButtons = styled.span`
 
 export const ProductCardButton = styled.button`
    flex-grow: 1;
-   height: 3.6rem;
+   height: 4rem;
    width: 100%;
    display: flex;
    align-items: center;
