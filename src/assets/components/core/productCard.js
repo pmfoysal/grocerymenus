@@ -16,7 +16,7 @@ import {
    ProductCardTitle,
 } from '@coreStyle/productCard.styles';
 
-export default function ProductCard() {
+export default function ProductCard({home}) {
    const stock = false;
 
    return (
@@ -59,7 +59,7 @@ export default function ProductCard() {
             <ProductCardButtons>
                <ProductCardButton edit>edit</ProductCardButton>
                <ProductCardButton>update</ProductCardButton>
-               <ProductCardButton danger>delete</ProductCardButton>
+               {!home && <ProductCardButton danger>delete</ProductCardButton>}
             </ProductCardButtons>
          </ProductCardTexts>
       </ProductCardContainer>

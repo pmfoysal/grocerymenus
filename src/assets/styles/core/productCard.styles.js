@@ -2,8 +2,9 @@ import styled, {css} from 'styled-components';
 
 export const ProductCardContainer = styled.summary`
    padding: 2rem;
-   width: 40rem;
+   width: 100%;
    border-radius: 2rem;
+   background-color: ${({theme}) => theme.back.page};
    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
 
    figure {
