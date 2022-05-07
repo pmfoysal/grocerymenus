@@ -14,6 +14,12 @@ export const CategoryCardContainer = styled.summary`
    mask-size: cover;
    height: 20rem;
    width: 20rem;
+   cursor: pointer;
+   transition: 0.2s ease;
+
+   &:hover {
+      background-color: ${({theme}) => theme.back.card2};
+   }
 `;
 
 export const CategoryCardImage = styled.img`

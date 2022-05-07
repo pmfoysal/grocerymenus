@@ -1,9 +1,7 @@
 import React from 'react';
-import categoryData from '@data/categoryData';
 import {CategoryCardContainer, CategoryCardImage, CategoryCardText} from '@coreStyle/categoryCard.styles';
 
-export default function CategoryCard() {
-   const data = categoryData[1];
+export default function CategoryCard({data}) {
    const {image, name, color} = data;
 
    return (

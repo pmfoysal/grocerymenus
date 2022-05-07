@@ -28,7 +28,7 @@ const categoryData = [
       id: 'category-004',
       name: 'meats',
       image: meats,
-      color: '#fbf9c9',
+      color: '#ecdcfa',
    },
    {
       id: 'category-005',

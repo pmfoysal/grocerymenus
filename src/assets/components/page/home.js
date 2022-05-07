@@ -2,7 +2,7 @@ import React from 'react';
 import HomeBanner from '@baseComp/homeBanner';
 import HomeFeature from '@baseComp/homeFeature';
 import SectionTitle from '@coreComp/sectionTitle';
-import CategoryCard from '@coreComp/categoryCard';
+import HomeCategory from '@baseComp/homeCategory';
 
 export default function Home() {
    return (
@@ -11,9 +11,8 @@ export default function Home() {
          <SectionTitle>features</SectionTitle>
          <HomeFeature />
          <SectionTitle>categories</SectionTitle>
-         <div style={{padding: '10rem'}}>
-            <CategoryCard />
-         </div>
+         <HomeCategory />
+         <SectionTitle>newsletter</SectionTitle>
       </React.Fragment>
    );
 }
