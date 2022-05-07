@@ -1,5 +1,6 @@
 import React from 'react';
+import HomeBanner from '@baseComp/homeBanner';
 
 export default function Home() {
-   return <div style={{padding: '8rem'}}>home page</div>;
+   return <HomeBanner />;
 }
