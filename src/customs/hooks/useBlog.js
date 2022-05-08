@@ -7,7 +7,7 @@ export default function useBlog(id) {
    useEffect(() => {
       const url = `https://pmphas11.herokuapp.com/blog/${id}`;
       axios.get(url).then(result => setBlog(result.data));
-   }, []);
+   }, [id]);
 
    return {blog};
 }

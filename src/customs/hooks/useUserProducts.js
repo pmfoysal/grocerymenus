@@ -16,7 +16,7 @@ export default function useUserProducts(email) {
             userSignout();
             toast.error(error.message);
          });
-   }, [render]);
+   }, [render, email]);
 
    return {products, setRender};
 }

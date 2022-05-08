@@ -1,5 +1,5 @@
 {
-   "name": "reactapp",
+   "name": "grocerymenus",
    "version": "0.1.0",
    "private": true,
    "homepage": "/",
@@ -7,7 +7,7 @@
    "readme": "README.md",
    "markdown": "github",
    "publisher": "@pmfoysal",
-   "description": "Basic Starter Project Setup for ReactJS!",
+   "description": "GroceryMenus - Modern Inventory Management Application Designed & Developed by @pmfoysal!",
    "author": {
       "name": "Foysal Ahmmed",
       "email": "pmfoysal@gmail.com",
@@ -23,10 +23,11 @@
    ],
    "keywords": [
       "reactjs",
-      "starter-project",
-      "reactjs-project",
-      "reactjs-starter",
-      "reactjs-starter-project"
+      "inventory",
+      "warehouse",
+      "management",
+      "inventory-management",
+      "warehouse-management"
    ],
    "repository": {
       "type": "source-code",
