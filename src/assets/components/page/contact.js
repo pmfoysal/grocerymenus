@@ -52,8 +52,8 @@ export default function Contact() {
                   <ContactTouchArea>
                      <ContactTouchTitle>get in touch</ContactTouchTitle>
                      <ContactPara>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consectetur qui quidem perspiciatis nisi
-                        maiores error cumque dolor repellat quasi.
+                        Suitable for Grocery Market, Store, Organic Food, Online Shop, Agriculture and Natural Foods related
+                        management Website.
                      </ContactPara>
                      <ContactTouchCards>
                         {contactData.map(data => (
@@ -64,8 +64,8 @@ export default function Contact() {
                   <ContactTouchArea>
                      <ContactTouchTitle>give your feedback</ContactTouchTitle>
                      <ContactPara>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consectetur qui quidem perspiciatis nisi
-                        maiores error cumque dolor repellat quasi.
+                        Suitable for Grocery Market, Store, Organic Food, Online Shop, Agriculture and Natural Foods related
+                        management Website.
                      </ContactPara>
                      <ContactForm>
                         <ContactFormInputGroup>
