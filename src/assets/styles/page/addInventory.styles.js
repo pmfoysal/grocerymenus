@@ -11,6 +11,26 @@ export const AddInventoryContent = styled.article`
    display: flex;
    align-items: center;
    justify-content: center;
+
+   @media screen and (max-width: 700px) {
+      padding: 6rem;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 4rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem;
+   }
+
+   @media screen and (max-width: 350px) {
+      padding: 2.5rem;
+   }
 `;
 
 export const AddInventoryForm = styled.div`
@@ -23,6 +43,22 @@ export const AddInventoryForm = styled.div`
    align-items: center;
    justify-content: center;
    flex-direction: column;
+
+   @media screen and (max-width: 600px) {
+      width: 100%;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 4rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem;
+   }
+
+   @media screen and (max-width: 350px) {
+      padding: 2.5rem;
+   }
 `;
 
 export const AddInventoryLogo = styled.img`
@@ -35,6 +71,11 @@ export const AddInventoryTitle = styled.h1`
    color: ${({theme}) => theme.text.main.head};
    line-height: 1;
    margin-top: 1.5rem;
+   text-align: center;
+
+   @media screen and (max-width: 450px) {
+      margin-top: 2rem;
+   }
 `;
 
 export const AddInventoryPara = styled.p`
@@ -43,6 +84,7 @@ export const AddInventoryPara = styled.p`
    line-height: 1;
    text-transform: capitalize;
    margin-top: 2.5rem;
+   text-align: center;
 
    span {
       font-size: inherit;
@@ -66,6 +108,10 @@ export const AddInventoryInputGroup = styled.span`
    grid-template-columns: repeat(2, 1fr);
    gap: 2.5rem;
    width: 100%;
+
+   @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
+   }
 `;
 
 export const AddInventoryButtons = styled.div`
@@ -73,6 +119,8 @@ export const AddInventoryButtons = styled.div`
    align-items: center;
    gap: 2rem;
    margin-top: 3rem;
+   flex-wrap: wrap;
+   justify-content: center;
 `;
 
 export const AddInventoryButton = styled.button`
