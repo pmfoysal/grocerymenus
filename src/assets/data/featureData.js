@@ -12,7 +12,7 @@ const featureData = [
    },
    {
       id: 'feature-002',
-      image: image2,
+      image: image4,
       title: 'salads',
       para: 'fresh nutrition salads',
    },
@@ -24,7 +24,7 @@ const featureData = [
    },
    {
       id: 'feature-004',
-      image: image4,
+      image: image2,
       title: 'support',
       para: 'concerns and queries',
    },

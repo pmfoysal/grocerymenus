@@ -10,9 +10,9 @@ export default function Home() {
    return (
       <React.Fragment>
          <HomeBanner />
-         {/* <SectionTitle>features</SectionTitle>
+         <SectionTitle>features</SectionTitle>
          <HomeFeature />
-         <SectionTitle>categories</SectionTitle>
+         {/* <SectionTitle>categories</SectionTitle>
          <HomeCategory />
          <SectionTitle>inventories</SectionTitle>
          <HomeProduct />

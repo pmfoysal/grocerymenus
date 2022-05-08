@@ -4,6 +4,12 @@ export const FeatureCardContainer = styled.summary`
    display: flex;
    align-items: center;
    gap: 1.5rem;
+
+   @media screen and (max-width: 350px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+   }
 `;
 
 export const FeatureCardImage = styled.img`
