@@ -20,6 +20,22 @@ export const ContactTouchArea = styled.article`
    background-color: ${({theme}) => theme.back.card0};
    padding: 8rem;
    border-radius: 3rem;
+
+   @media screen and (max-width: 700px) {
+      padding: 6rem;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 3.5rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 2rem;
+   }
 `;
 
 export const ContactForm = styled.div`
@@ -32,6 +48,22 @@ export const ContactForm = styled.div`
    border-radius: 3rem;
    background-color: ${({theme}) => theme.back.page};
    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+
+   @media screen and (max-width: 1200px) {
+      width: 100%;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 4rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem;
+   }
 `;
 
 export const ContactTouchTitle = styled.h1`
@@ -51,12 +83,31 @@ export const ContactTouchCards = styled.div`
    gap: 5rem;
    width: 100rem;
    margin-top: 5rem;
+
+   @media screen and (max-width: 1200px) {
+      width: 100%;
+   }
+
+   @media screen and (max-width: 750px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+   @media screen and (max-width: 500px) {
+      gap: 4rem;
+   }
 `;
 
 export const ContactFormInputGroup = styled.span`
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 2.5rem;
+
+   @media screen and (max-width: 700px) {
+      grid-template-columns: repeat(1, 1fr);
+   }
 `;
 
 export const ContactFormButtons = styled.div`
@@ -65,6 +116,11 @@ export const ContactFormButtons = styled.div`
    align-items: center;
    justify-content: center;
    gap: 3rem;
+
+   @media screen and (max-width: 450px) {
+      flex-wrap: wrap;
+      gap: 2rem;
+   }
 `;
 
 export const ContactFormButton = styled.button`
