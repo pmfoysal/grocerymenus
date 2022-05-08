@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTitle from '@coreComp/pageTitle';
 import useProducts from '@hook/useProducts';
+import PageLoader from '@baseComp/pageLoader';
 import ProductCard from '@coreComp/productCard';
 import MainContainer from '@coreComp/mainContainer';
 import {InventoriesContainer, InventoriesContent, InventoriesProducts} from '@pageStyle/inventories.styles';
@@ -14,6 +15,7 @@ export default function Inventories() {
             <PageTitle>
                manage <span>inventories</span>
             </PageTitle>
+            {!products.length && <PageLoader />}
             <InventoriesContent>
                <InventoriesProducts>
                   {products.map(data => (

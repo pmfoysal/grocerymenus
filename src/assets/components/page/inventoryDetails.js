@@ -1,8 +1,12 @@
+import {Icon} from '@iconify/react';
+import React, {useState} from 'react';
+import InputBox from '@coreComp/inputBox';
+import useProduct from '@hook/useProduct';
+import {useParams} from 'react-router-dom';
 import ImgLoader from '@baseComp/imgLoader';
-import MainContainer from '@coreComp/mainContainer';
 import PageTitle from '@coreComp/pageTitle';
-import image from '@image/product.png';
 import SectionTitle from '@coreComp/sectionTitle';
+import MainContainer from '@coreComp/mainContainer';
 import {
    InventoryDetailsArea,
    InventoryDetailsContainer,
@@ -13,17 +17,18 @@ import {
    InventoryDetailsTag,
    InventoryDetailsTitle,
    InventoryImageArea,
+   InventoryName,
    InventoryUpdateArea,
    InventoryUpdateButton,
    InventoryUpdateButtons,
 } from '@pageStyle/inventoryDetails.styles';
-import React, {useState} from 'react';
-import {Icon} from '@iconify/react';
-import InputBox from '@coreComp/inputBox';
 
 export default function InventoryDetails() {
-   const stock = true;
+   const {id: urlId} = useParams();
+   const {product} = useProduct(urlId);
    const [restock, setRestock] = useState('');
+   const {_id, title, email, date, price, quantity, unit, details, supplier, image} = product;
+   const stock = Boolean(quantity);
 
    function inputRestock(event) {
       setRestock(event.target.value);
@@ -39,20 +44,22 @@ export default function InventoryDetails() {
                <InventoryImageArea>
                   <ImgLoader src={image} />
                   <InventoryDetailsInfos>
+                     <InventoryName>{title}</InventoryName>
                      <InventoryDetailsInfo>
                         <InventoryDetailsTag>
                            price:{' '}
                            <span className='price'>
-                              $30.00<span>/kg</span>
+                              ${Number(price).toFixed(2)}
+                              <span>/{unit}</span>
                            </span>
                         </InventoryDetailsTag>
                         <InventoryDetailsTag>
-                           supplier: <span>google</span>
+                           supplier: <span>{supplier}</span>
                         </InventoryDetailsTag>
                      </InventoryDetailsInfo>
                      <InventoryDetailsInfo>
                         <InventoryDetailsTag>
-                           quantity: <span>20</span>
+                           quantity: <span>{quantity}</span>
                         </InventoryDetailsTag>
                         <InventoryDetailsStock stock={stock}>
                            {stock ? (
@@ -70,32 +77,21 @@ export default function InventoryDetails() {
                      </InventoryDetailsInfo>
                      <InventoryDetailsInfo>
                         <InventoryDetailsTag small>
-                           author: <span className='user'>@pmfoysal</span>
+                           author: <span className='user'>@{email?.split('@')[0]}</span>
                         </InventoryDetailsTag>
                         <InventoryDetailsTag>
-                           date: <span>monday, 20 may, 2022</span>
+                           date: <span>{new Date(date).toLocaleDateString(undefined, {dateStyle: 'long'})}</span>
                         </InventoryDetailsTag>
                      </InventoryDetailsInfo>
                   </InventoryDetailsInfos>
                </InventoryImageArea>
                <InventoryDetailsTitle>description:</InventoryDetailsTitle>
-               <InventoryDetailsPara>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis deserunt magnam nesciunt a itaque possimus
-                  enim error architecto, amet esse similique quia numquam, distinctio iusto illum perspiciatis rem, mollitia
-                  facilis sapiente blanditiis quidem recusandae. Quia error possimus molestias culpa reiciendis fugiat cupiditate
-                  quod voluptatem? Consequuntur, sunt ut a veniam neque iure dicta vitae facilis sequi consequatur repellat, odit
-                  reiciendis enim laudantium! Maxime dolorum facilis, consequatur aspernatur asperiores quidem non quas. Nemo in
-                  quam dolorem illo iste. Veniam iure nobis possimus delectus, vel quos porro quis tenetur optio, quae expedita
-                  ipsa enim quasi omnis sit debitis nihil non dolor! Sunt, quibusdam qui iusto saepe quisquam nulla nisi nihil
-                  voluptatum dolor facere culpa delectus illo odit, veritatis error? Quo natus suscipit cum itaque ut quaerat
-                  error dolorum aut ipsam odit, molestiae voluptas est beatae repellat at enim id voluptatum unde officia saepe
-                  nulla reprehenderit! Itaque adipisci aliquid soluta officiis tenetur,
-               </InventoryDetailsPara>
+               <InventoryDetailsPara>{details}</InventoryDetailsPara>
             </InventoryDetailsArea>
             <SectionTitle>update inventory</SectionTitle>
             <InventoryUpdateArea>
                <InventoryUpdateButtons>
-                  <InputBox type='text' value={`inStock:  ${20}`} readOnly />
+                  <InputBox type='text' value={`inStock:  ${quantity}`} readOnly />
                   <InventoryUpdateButton>delivered</InventoryUpdateButton>
                </InventoryUpdateButtons>
                <InventoryUpdateButtons>

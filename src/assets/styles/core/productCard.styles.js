@@ -14,14 +14,13 @@ export const ProductCardContainer = styled.summary`
       background-color: ${({theme}) => theme.back.card0};
       border-radius: 2rem;
       overflow: hidden;
-      padding: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      @media screen and (max-width: 500px) {
-         padding: 4rem;
-      }
-
-      @media screen and (max-width: 400px) {
-         padding: 3rem;
+      img {
+         width: 70%;
+         height: auto;
       }
 
       @media screen and (max-width: 350px) {

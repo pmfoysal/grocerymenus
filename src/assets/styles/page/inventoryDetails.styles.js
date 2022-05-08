@@ -35,6 +35,12 @@ export const InventoryDetailsArea = styled.div`
    }
 `;
 
+export const InventoryName = styled.h1`
+   font-size: 3.2rem;
+   color: ${({theme}) => theme.text.main.head};
+   grid-column: span 2;
+`;
+
 export const InventoryImageArea = styled.div`
    background-color: ${({theme}) => theme.back.page};
    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
@@ -51,23 +57,13 @@ export const InventoryImageArea = styled.div`
       aspect-ratio: 2/1.5;
       background-color: ${({theme}) => theme.back.card0};
       border-radius: 2rem;
-      padding: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      @media screen and (max-width: 900px) {
-         width: 100%;
+      img {
+         width: 70%;
          height: auto;
-      }
-
-      @media screen and (max-width: 700px) {
-         padding: 4rem;
-      }
-
-      @media screen and (max-width: 500px) {
-         padding: 3rem;
-      }
-
-      @media screen and (max-width: 400px) {
-         padding: 2.5rem;
       }
    }
 
