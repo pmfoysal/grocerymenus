@@ -1,5 +1,6 @@
 import React from 'react';
 import SetTitle from '@helper/setTitle';
+import HomeBlogs from '@baseComp/homeBlogs';
 import HomeBanner from '@baseComp/homeBanner';
 import HomeProduct from '@baseComp/homeProduct';
 import HomeFeature from '@baseComp/homeFeature';
@@ -18,6 +19,8 @@ export default function Home() {
          <HomeCategory />
          <SectionTitle>inventories</SectionTitle>
          <HomeProduct />
+         <SectionTitle>latest blogs</SectionTitle>
+         <HomeBlogs />
          <SectionTitle>newsletter</SectionTitle>
          <HomeSubscribe />
       </React.Fragment>
