@@ -32,6 +32,18 @@ export const HeaderButtons = styled.nav`
    align-items: center;
    justify-content: flex-end;
    gap: 1rem;
+
+   @media screen and (max-width: 800px) {
+      display: none;
+
+      &.true {
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         justify-content: center;
+         width: 100%;
+      }
+   }
 `;
 
 export const HeaderButton = styled.button`

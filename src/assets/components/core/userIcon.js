@@ -15,7 +15,7 @@ import {
    UserIconWindowRole,
 } from '@coreStyle/userIcon.styles';
 
-export default function UserIcon({user}) {
+export default function UserIcon({user, active: prevActive}) {
    const navigate = useNavigate();
    const [active, setActive] = useState(false);
    const {displayName, photoURL, email, role} = user;
@@ -42,7 +42,7 @@ export default function UserIcon({user}) {
    }
 
    return (
-      <UserIconContainer>
+      <UserIconContainer className={prevActive}>
          <UserIconImage onClick={clickHandler} src={photoURL || image} alt='user' />
          {active && (
             <UserIconWindow>

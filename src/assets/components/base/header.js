@@ -1,3 +1,4 @@
+import HamMenu from './hamMenu';
 import Logo from '@coreComp/logo';
 import NavLinks from './navLinks';
 import HamIcon from '@coreComp/hamIcon';
@@ -38,6 +39,7 @@ export default function Header() {
                )}
             </HeaderButtons>
          </MainContainer>
+         {active && <HamMenu user={user} active={active} />}
       </HeaderContainer>
    );
 }

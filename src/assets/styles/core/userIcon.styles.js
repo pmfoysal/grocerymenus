@@ -5,6 +5,16 @@ export const UserIconContainer = styled.div`
 
    @media screen and (max-width: 800px) {
       display: none;
+
+      &.true {
+         display: inline-block;
+
+         & > div {
+            right: auto;
+            left: 50%;
+            transform: translateX(-50%);
+         }
+      }
    }
 `;
 
