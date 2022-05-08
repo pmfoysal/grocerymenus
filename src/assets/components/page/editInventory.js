@@ -1,10 +1,11 @@
 import logo from '@image/logo.svg';
+import {toast} from 'react-toastify';
 import InputBox from '@coreComp/inputBox';
 import useProduct from '@hook/useProduct';
 import PageTitle from '@coreComp/pageTitle';
 import updateToDB from '@utility/updateToDB';
-import PageLoader from '@baseComp/pageLoader';
 import MessageBox from '@coreComp/messageBox';
+import PageLoader from '@baseComp/pageLoader';
 import validateText from '@utility/validateText';
 import MainContainer from '@coreComp/mainContainer';
 import {StoreContext} from '@context/storeProvider';
@@ -23,7 +24,6 @@ import {
    AddInventoryPara,
    AddInventoryTitle,
 } from '@pageStyle/addInventory.styles';
-import {toast} from 'react-toastify';
 
 export default function EditInventory() {
    const formRef = useRef();

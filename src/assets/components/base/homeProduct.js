@@ -4,10 +4,9 @@ import {useNavigate} from 'react-router-dom';
 import ProductCard from '@coreComp/productCard';
 import MainContainer from '@coreComp/mainContainer';
 import {HomeContentProducts, HomeProductButton, HomeProductContainer, HomeProductContent} from '@baseStyle/homeProduct.styles';
-import PageLoader from './pageLoader';
 
 export default function HomeProduct() {
-   const {products} = useProducts();
+   const {products, setRender} = useProducts();
    const navigate = useNavigate();
 
    function clickHandler() {
@@ -16,12 +15,11 @@ export default function HomeProduct() {
 
    return (
       <HomeProductContainer>
-         {!products.length && <PageLoader />}
          <MainContainer>
             <HomeProductContent>
                <HomeContentProducts>
                   {products.slice(undefined, 6).map(data => (
-                     <ProductCard data={data} key={data._id} home />
+                     <ProductCard data={data} key={data._id} setRender={setRender} home />
                   ))}
                </HomeContentProducts>
                <HomeProductButton onClick={clickHandler}>manage inventories</HomeProductButton>

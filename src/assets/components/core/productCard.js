@@ -17,7 +17,7 @@ import {
    ProductCardTitle,
 } from '@coreStyle/productCard.styles';
 
-export default function ProductCard({home, data}) {
+export default function ProductCard({home, data, setRender}) {
    const navigate = useNavigate();
    const [active, setActive] = useState(false);
    const {_id, title, price, quantity, unit, details, supplier, image} = data;
@@ -91,6 +91,7 @@ export default function ProductCard({home, data}) {
                message={`Are you sure you want to delete it? Once deleted, this item can't be possible to bring back again!`}
                setActive={setActive}
                id={_id}
+               setRender={setRender}
             />
          )}
       </ProductCardContainer>

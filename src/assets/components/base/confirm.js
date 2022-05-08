@@ -1,16 +1,17 @@
 import React from 'react';
 import {Icon} from '@iconify/react';
 import Backdrop from '@coreComp/backdrop';
+import deleteFromDB from '@utility/deleteFromDB';
 import {ConfirmButton, ConfirmButtons, ConfirmContainer, ConfirmPara, ConfirmTitle} from '@baseStyle/confirm.styles';
 
-export default function Confirm({setActive, id, button, message}) {
+export default function Confirm({setActive, id, button, message, setRender}) {
    function cancelHandler() {
       setActive(false);
    }
 
    function mainHandler() {
-      console.log(id);
       setActive(false);
+      deleteFromDB(id, setRender);
    }
 
    return (
