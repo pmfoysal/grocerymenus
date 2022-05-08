@@ -56,6 +56,19 @@ async function runDatabase() {
          res.send(data);
       });
 
+      app.get('/products/:user', verifyUser, async (req, res) => {
+         const email = req.params.user;
+         const authEmail = req.decoded.email;
+         if (authEmail === email) {
+            const query = {email};
+            const cursor = products.find(query);
+            const data = await cursor.toArray();
+            res.send(data);
+         } else {
+            res.status(403).send({status: 303, message: 'Your signed Email & Token Email mismatched!'});
+         }
+      });
+
       app.get('/product/:id', async (req, res) => {
          const id = req.params.id;
          const query = {_id: ObjectId(id)};
