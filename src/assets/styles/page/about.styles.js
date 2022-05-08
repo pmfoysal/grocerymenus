@@ -9,10 +9,26 @@ export const AboutContent = styled.div`
    background-color: ${({theme}) => theme.back.card0};
    padding: 8rem;
    border-radius: 3rem;
+
+   @media screen and (max-width: 700px) {
+      padding: 6rem;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 4.5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 3rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 2rem;
+   }
 `;
 
 export const AboutCard = styled.article`
-   width: 120rem;
+   max-width: 120rem;
    margin: 0 auto;
    padding: 4rem;
    border-radius: 2rem;
@@ -48,6 +64,12 @@ export const AboutCardImage = styled.img`
    height: 17.5rem;
    width: 17.5rem;
    border-radius: 100%;
+
+   @media screen and (max-width: 450px) {
+      width: 60%;
+      height: auto;
+      aspect-ratio: 1/1;
+   }
 `;
 
 export const AboutCardName = styled.h1`
@@ -69,10 +91,12 @@ export const AboutCardIcons = styled.div`
    display: flex;
    align-items: center;
    gap: 1.5rem;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-top: 2rem;
 `;
 
 export const AboutCardIcon = styled.a`
-   margin-top: 2rem;
    height: 3.5rem;
    width: 3.5rem;
    border-radius: 100%;
