@@ -33,4 +33,8 @@ export const SocialIconContainer = styled.span`
    &:active {
       transform: scale(0.95);
    }
+
+   @media screen and (max-width: 600px) {
+      width: 8rem;
+   }
 `;

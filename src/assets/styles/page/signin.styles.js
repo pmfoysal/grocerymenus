@@ -6,6 +6,7 @@ export const SigninCheckBoxGroup = styled.div`
    align-items: center;
    justify-content: space-between;
    gap: 1rem;
+   flex-wrap: wrap;
 
    a {
       color: ${({theme}) => theme.back.accent};

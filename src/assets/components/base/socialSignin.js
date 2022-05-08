@@ -1,10 +1,10 @@
 import React from 'react';
 import SocialIcon from '@coreComp/socialIcon';
-import {SocialSigninContainer} from '@baseStyle/socialSignin.styles';
-import googleSignin from '@auth/googleSignin';
-import microsoftSignin from '@auth/microsoftSignin';
-import facebookSignin from '@auth/facebookSignin';
 import githubSignin from '@auth/githubSignin';
+import googleSignin from '@auth/googleSignin';
+import facebookSignin from '@auth/facebookSignin';
+import microsoftSignin from '@auth/microsoftSignin';
+import {SocialSigninContainer} from '@baseStyle/socialSignin.styles';
 
 export default function SocialSignin() {
    function googleHandler() {
