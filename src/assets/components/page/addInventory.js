@@ -111,9 +111,9 @@ export default function AddInventory() {
                         <InputBox name='title' type='text' handler={inputHandler(setTitle)} value={title} />
                         <AddInventoryInputGroup>
                            <InputBox name='price' type='number' handler={inputHandler(setPrice)} value={price} />
-                           <InputBox name='measure' type='text' handler={inputHandler(setUnit)} value={unit} />
+                           <InputBox name='measure' type='text' none handler={inputHandler(setUnit)} value={unit} />
                         </AddInventoryInputGroup>
-                        <InputBox name='image' type='text' handler={inputHandler(setImage)} value={image} />
+                        <InputBox name='image' type='text' none handler={inputHandler(setImage)} value={image} />
                         <AddInventoryInputGroup>
                            <InputBox name='supplier' type='text' handler={inputHandler(setSupplier)} value={supplier} />
                            <InputBox name='quantity' type='number' handler={inputHandler(setQuantity)} value={quantity} />

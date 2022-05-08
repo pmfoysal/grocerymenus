@@ -155,7 +155,7 @@ export default function EditInventory() {
                         <InputBox name='title' type='text' handler={inputHandler(setTitle)} value={title} />
                         <AddInventoryInputGroup>
                            <InputBox name='price' type='number' handler={inputHandler(setPrice)} value={price} />
-                           <InputBox name='measure' type='text' handler={inputHandler(setUnit)} value={unit} />
+                           <InputBox name='measure' type='text' none handler={inputHandler(setUnit)} value={unit} />
                         </AddInventoryInputGroup>
                         <InputBox name='image' type='text' none handler={inputHandler(setImage)} value={image} />
                         <AddInventoryInputGroup>
