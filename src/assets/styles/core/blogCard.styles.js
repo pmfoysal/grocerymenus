@@ -15,10 +15,18 @@ export const BlogCardContainer = styled.article`
       aspect-ratio: 2/1.3;
       overflow: hidden;
       background-color: white;
+
+      @media screen and (max-width: 400px) {
+         aspect-ratio: 2/1.5;
+      }
    }
 
    &:hover {
       box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.15);
+   }
+
+   @media screen and (max-width: 850px) {
+      max-width: 50rem;
    }
 `;
 
@@ -31,6 +39,7 @@ export const BlogCardTags = styled.p`
    padding: 1.5rem 0;
    color: ${({theme}) => theme.text.main.para};
    line-height: 1;
+   flex-wrap: wrap;
 
    .date {
       font-size: 1.5rem;
