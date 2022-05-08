@@ -16,7 +16,7 @@ export default function updateToDB(id, data, reloader, resetter) {
                autoClose: 3000,
             });
             reloader(Math.random().toFixed(2));
-            resetter('');
+            if (resetter) resetter('');
          }
       })
       .catch(error => {

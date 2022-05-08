@@ -25,6 +25,7 @@ import {
    InventoryUpdateButtons,
 } from '@pageStyle/inventoryDetails.styles';
 import validateNumber from '@utility/validateNumber';
+import {toast} from 'react-toastify';
 
 export default function InventoryDetails() {
    const {id: urlId} = useParams();
@@ -35,6 +36,15 @@ export default function InventoryDetails() {
 
    function inputRestock(event) {
       setRestock(event.target.value);
+   }
+
+   function deliveredHandler() {
+      const numQuan = Number(quantity);
+      if (numQuan > 0) {
+         updateToDB(_id, {quantity: numQuan - 1}, setRender);
+      } else {
+         toast.error('Please restock the product quantity!', {autoClose: 3000});
+      }
    }
 
    function restockHandler() {
@@ -104,7 +114,7 @@ export default function InventoryDetails() {
             <InventoryUpdateArea>
                <InventoryUpdateButtons>
                   <InputBox type='text' value={`inStock:  ${quantity}`} readOnly />
-                  <InventoryUpdateButton>delivered</InventoryUpdateButton>
+                  <InventoryUpdateButton onClick={deliveredHandler}>delivered</InventoryUpdateButton>
                </InventoryUpdateButtons>
                <InventoryUpdateButtons>
                   <InputBox name='quantity' type='number' handler={inputRestock} value={restock} />
