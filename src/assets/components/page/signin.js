@@ -1,9 +1,10 @@
 import {toast} from 'react-toastify';
+import SetTitle from '@helper/setTitle';
 import InputBox from '@coreComp/inputBox';
 import CheckBox from '@coreComp/checkBox';
 import PageTitle from '@coreComp/pageTitle';
-import React, {useContext, useState} from 'react';
 import SocialSignin from '@baseComp/socialSignin';
+import React, {useContext, useState} from 'react';
 import emailPassSignin from '@auth/emailPassSignin';
 import {StoreContext} from '@context/storeProvider';
 import MainContainer from '@coreComp/mainContainer';
@@ -54,41 +55,44 @@ export default function Signin() {
    }
 
    return (
-      <SignupContainer>
-         <MainContainer>
-            <PageTitle>
-               signin <span>form</span>
-            </PageTitle>
-            <SignupContent>
-               <SignupForm>
-                  <SignupTitle>hey, welcome back!</SignupTitle>
-                  <SignupHead>Signin an Account</SignupHead>
-                  <SignupPara>
-                     Don't have an account? <Link to='/signup'>Signup</Link>
-                  </SignupPara>
-                  <SignupInputArea>
-                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
-                     <InputBox name='password' none type='password' handler={inputHandler(setPassword)} value={password} />
-                     <SigninCheckBoxGroup>
-                        <CheckBox>Keep me signed in!</CheckBox>
-                        <Link to='/forget'>forget password?</Link>
-                     </SigninCheckBoxGroup>
-                  </SignupInputArea>
-                  <SignupButton onClick={signinHandler}>signin</SignupButton>
-                  <SigninOr>
-                     <span className='line'></span>
-                     <span className='text'>or</span>
-                     <span className='line'></span>
-                  </SigninOr>
-                  <SocialSignin />
-                  <SigninWarning>
-                     <strong>Note: </strong>
-                     By signing in you agree our <Link to='/terms'>Terms and Conditions!</Link> Please read our{' '}
-                     <Link to='/privacy'>Privacy and Policy</Link> carefully.
-                  </SigninWarning>
-               </SignupForm>
-            </SignupContent>
-         </MainContainer>
-      </SignupContainer>
+      <React.Fragment>
+         <SetTitle title='Signin - Welcome Back!' />
+         <SignupContainer>
+            <MainContainer>
+               <PageTitle>
+                  signin <span>form</span>
+               </PageTitle>
+               <SignupContent>
+                  <SignupForm>
+                     <SignupTitle>hey, welcome back!</SignupTitle>
+                     <SignupHead>Signin an Account</SignupHead>
+                     <SignupPara>
+                        Don't have an account? <Link to='/signup'>Signup</Link>
+                     </SignupPara>
+                     <SignupInputArea>
+                        <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
+                        <InputBox name='password' none type='password' handler={inputHandler(setPassword)} value={password} />
+                        <SigninCheckBoxGroup>
+                           <CheckBox>Keep me signed in!</CheckBox>
+                           <Link to='/forget'>forget password?</Link>
+                        </SigninCheckBoxGroup>
+                     </SignupInputArea>
+                     <SignupButton onClick={signinHandler}>signin</SignupButton>
+                     <SigninOr>
+                        <span className='line'></span>
+                        <span className='text'>or</span>
+                        <span className='line'></span>
+                     </SigninOr>
+                     <SocialSignin />
+                     <SigninWarning>
+                        <strong>Note: </strong>
+                        By signing in you agree our <Link to='/terms'>Terms and Conditions!</Link> Please read our{' '}
+                        <Link to='/privacy'>Privacy and Policy</Link> carefully.
+                     </SigninWarning>
+                  </SignupForm>
+               </SignupContent>
+            </MainContainer>
+         </SignupContainer>
+      </React.Fragment>
    );
 }

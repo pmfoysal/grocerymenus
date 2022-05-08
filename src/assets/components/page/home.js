@@ -1,4 +1,5 @@
 import React from 'react';
+import SetTitle from '@helper/setTitle';
 import HomeBanner from '@baseComp/homeBanner';
 import HomeProduct from '@baseComp/homeProduct';
 import HomeFeature from '@baseComp/homeFeature';
@@ -9,6 +10,7 @@ import HomeSubscribe from '@coreComp/homeSubscribe';
 export default function Home() {
    return (
       <React.Fragment>
+         <SetTitle title='Home - Modern Inventory Management!' />
          <HomeBanner />
          <SectionTitle>features</SectionTitle>
          <HomeFeature />

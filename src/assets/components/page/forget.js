@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import SetTitle from '@helper/setTitle';
 import InputBox from '@coreComp/inputBox';
 import PageTitle from '@coreComp/pageTitle';
 import userPassReset from '@auth/userPassReset';
@@ -31,22 +32,25 @@ export default function Forget() {
    }
 
    return (
-      <SignupContainer>
-         <MainContainer>
-            <PageTitle>
-               forget <span>password</span>
-            </PageTitle>
-            <SignupContent>
-               <SignupForm>
-                  <SignupTitle>hey, don't worry!</SignupTitle>
-                  <SignupHead>Reset your Password</SignupHead>
-                  <SignupInputArea>
-                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
-                  </SignupInputArea>
-                  <SignupButton onClick={resetHandler}>send reset email</SignupButton>
-               </SignupForm>
-            </SignupContent>
-         </MainContainer>
-      </SignupContainer>
+      <React.Fragment>
+         <SetTitle title='Forget - Reset Your Password!' />
+         <SignupContainer>
+            <MainContainer>
+               <PageTitle>
+                  forget <span>password</span>
+               </PageTitle>
+               <SignupContent>
+                  <SignupForm>
+                     <SignupTitle>hey, don't worry!</SignupTitle>
+                     <SignupHead>Reset your Password</SignupHead>
+                     <SignupInputArea>
+                        <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
+                     </SignupInputArea>
+                     <SignupButton onClick={resetHandler}>send reset email</SignupButton>
+                  </SignupForm>
+               </SignupContent>
+            </MainContainer>
+         </SignupContainer>
+      </React.Fragment>
    );
 }

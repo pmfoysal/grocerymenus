@@ -1,4 +1,5 @@
 import {toast} from 'react-toastify';
+import SetTitle from '@helper/setTitle';
 import InputBox from '@coreComp/inputBox';
 import CheckBox from '@coreComp/checkBox';
 import PageTitle from '@coreComp/pageTitle';
@@ -105,38 +106,41 @@ export default function Signup() {
    }
 
    return (
-      <SignupContainer>
-         <MainContainer>
-            <PageTitle>
-               signup <span>form</span>
-            </PageTitle>
-            <SignupContent>
-               <SignupForm>
-                  <SignupTitle>hey, good morning!</SignupTitle>
-                  <SignupHead>Create an Account</SignupHead>
-                  <SignupPara>
-                     Already have an account? <Link to='/signin'>Signin</Link>
-                  </SignupPara>
-                  <SignupInputArea>
-                     <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
-                     <SignupInputGroup>
-                        <InputBox name='first name' type='text' handler={inputHandler(setFirstName)} value={firstName} />
-                        <InputBox name='last name' type='text' handler={inputHandler(setLastName)} value={lastName} />
-                     </SignupInputGroup>
-                     <InputBox name='profile pic' none type='text' handler={inputHandler(setProfilePic)} value={profilePic} />
-                     <SignupInputGroup>
-                        <InputBox name='your phone' type='tel' handler={inputHandler(setPhone)} value={phone} />
-                        <InputBox name='password' type='password' handler={inputHandler(setPassword)} value={password} />
-                     </SignupInputGroup>
-                     <InputBox name='your address' type='text' handler={inputHandler(setAddress)} value={address} />
-                     <CheckBox handler={checkboxHandler}>
-                        Accept our <Link to='/terms'>Terms and Conditions!</Link>
-                     </CheckBox>
-                  </SignupInputArea>
-                  <SignupButton onClick={signupHandler}>signup</SignupButton>
-               </SignupForm>
-            </SignupContent>
-         </MainContainer>
-      </SignupContainer>
+      <React.Fragment>
+         <SetTitle title='Signup - Create a New Account!' />
+         <SignupContainer>
+            <MainContainer>
+               <PageTitle>
+                  signup <span>form</span>
+               </PageTitle>
+               <SignupContent>
+                  <SignupForm>
+                     <SignupTitle>hey, good morning!</SignupTitle>
+                     <SignupHead>Create an Account</SignupHead>
+                     <SignupPara>
+                        Already have an account? <Link to='/signin'>Signin</Link>
+                     </SignupPara>
+                     <SignupInputArea>
+                        <InputBox name='your email' type='email' handler={inputHandler(setEmail)} value={email} />
+                        <SignupInputGroup>
+                           <InputBox name='first name' type='text' handler={inputHandler(setFirstName)} value={firstName} />
+                           <InputBox name='last name' type='text' handler={inputHandler(setLastName)} value={lastName} />
+                        </SignupInputGroup>
+                        <InputBox name='profile pic' none type='text' handler={inputHandler(setProfilePic)} value={profilePic} />
+                        <SignupInputGroup>
+                           <InputBox name='your phone' type='tel' handler={inputHandler(setPhone)} value={phone} />
+                           <InputBox name='password' type='password' handler={inputHandler(setPassword)} value={password} />
+                        </SignupInputGroup>
+                        <InputBox name='your address' type='text' handler={inputHandler(setAddress)} value={address} />
+                        <CheckBox handler={checkboxHandler}>
+                           Accept our <Link to='/terms'>Terms and Conditions!</Link>
+                        </CheckBox>
+                     </SignupInputArea>
+                     <SignupButton onClick={signupHandler}>signup</SignupButton>
+                  </SignupForm>
+               </SignupContent>
+            </MainContainer>
+         </SignupContainer>
+      </React.Fragment>
    );
 }

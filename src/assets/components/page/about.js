@@ -1,5 +1,6 @@
 import React from 'react';
 import {Icon} from '@iconify/react';
+import SetTitle from '@helper/setTitle';
 import PageTitle from '@coreComp/pageTitle';
 import MainContainer from '@coreComp/mainContainer';
 import {
@@ -14,12 +15,11 @@ import {
    AboutContainer,
    AboutContent,
 } from '@pageStyle/about.styles';
-import SetTitle from '@helper/setTitle';
 
 export default function About() {
    return (
       <React.Fragment>
-         <SetTitle title='About - Foysal Ahmmed' />
+         <SetTitle title='About - Foysal Ahmmed!' />
          <AboutContainer>
             <MainContainer>
                <PageTitle>

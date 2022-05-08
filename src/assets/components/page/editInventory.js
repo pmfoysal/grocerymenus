@@ -1,5 +1,6 @@
 import logo from '@image/logo.svg';
 import {toast} from 'react-toastify';
+import SetTitle from '@helper/setTitle';
 import InputBox from '@coreComp/inputBox';
 import useProduct from '@hook/useProduct';
 import PageTitle from '@coreComp/pageTitle';
@@ -135,43 +136,46 @@ export default function EditInventory() {
    }, [product]);
 
    return (
-      <AddInventoryContainer>
-         <MainContainer>
-            <PageTitle>
-               edit <span>item</span>
-            </PageTitle>
-            {!product._id && <PageLoader />}
-            <AddInventoryContent>
-               <AddInventoryForm>
-                  <AddInventoryLogo src={logo} alt='brand-logo' />
-                  <AddInventoryPara>
-                     hey, welcome <span>{getUsername(user.email)}!</span>
-                  </AddInventoryPara>
-                  <AddInventoryTitle>edit this item</AddInventoryTitle>
-                  <AddInventoryInputs ref={formRef}>
-                     <InputBox name='title' type='text' handler={inputHandler(setTitle)} value={title} />
-                     <AddInventoryInputGroup>
-                        <InputBox name='price' type='number' handler={inputHandler(setPrice)} value={price} />
-                        <InputBox name='measure' type='text' handler={inputHandler(setUnit)} value={unit} />
-                     </AddInventoryInputGroup>
-                     <InputBox name='image' type='text' none handler={inputHandler(setImage)} value={image} />
-                     <AddInventoryInputGroup>
-                        <InputBox name='supplier' type='text' handler={inputHandler(setSupplier)} value={supplier} />
-                        <InputBox name='quantity' type='number' handler={inputHandler(setQuantity)} value={quantity} />
-                     </AddInventoryInputGroup>
-                     <MessageBox name='details' handler={inputHandler(setDetails)} value={details} />
-                  </AddInventoryInputs>
-                  <AddInventoryButtons>
-                     <AddInventoryButton onClick={cancelHandler} disabled={disable} reset>
-                        cancel
-                     </AddInventoryButton>
-                     <AddInventoryButton onClick={submitHandler} disabled={disable}>
-                        update
-                     </AddInventoryButton>
-                  </AddInventoryButtons>
-               </AddInventoryForm>
-            </AddInventoryContent>
-         </MainContainer>
-      </AddInventoryContainer>
+      <React.Fragment>
+         <SetTitle title='Edit - Edit an Inventory Item!' />
+         <AddInventoryContainer>
+            <MainContainer>
+               <PageTitle>
+                  edit <span>item</span>
+               </PageTitle>
+               {!product._id && <PageLoader />}
+               <AddInventoryContent>
+                  <AddInventoryForm>
+                     <AddInventoryLogo src={logo} alt='brand-logo' />
+                     <AddInventoryPara>
+                        hey, welcome <span>{getUsername(user.email)}!</span>
+                     </AddInventoryPara>
+                     <AddInventoryTitle>edit this item</AddInventoryTitle>
+                     <AddInventoryInputs ref={formRef}>
+                        <InputBox name='title' type='text' handler={inputHandler(setTitle)} value={title} />
+                        <AddInventoryInputGroup>
+                           <InputBox name='price' type='number' handler={inputHandler(setPrice)} value={price} />
+                           <InputBox name='measure' type='text' handler={inputHandler(setUnit)} value={unit} />
+                        </AddInventoryInputGroup>
+                        <InputBox name='image' type='text' none handler={inputHandler(setImage)} value={image} />
+                        <AddInventoryInputGroup>
+                           <InputBox name='supplier' type='text' handler={inputHandler(setSupplier)} value={supplier} />
+                           <InputBox name='quantity' type='number' handler={inputHandler(setQuantity)} value={quantity} />
+                        </AddInventoryInputGroup>
+                        <MessageBox name='details' handler={inputHandler(setDetails)} value={details} />
+                     </AddInventoryInputs>
+                     <AddInventoryButtons>
+                        <AddInventoryButton onClick={cancelHandler} disabled={disable} reset>
+                           cancel
+                        </AddInventoryButton>
+                        <AddInventoryButton onClick={submitHandler} disabled={disable}>
+                           update
+                        </AddInventoryButton>
+                     </AddInventoryButtons>
+                  </AddInventoryForm>
+               </AddInventoryContent>
+            </MainContainer>
+         </AddInventoryContainer>
+      </React.Fragment>
    );
 }
