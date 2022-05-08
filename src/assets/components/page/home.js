@@ -16,8 +16,8 @@ export default function Home() {
          <HomeCategory />
          <SectionTitle>inventories</SectionTitle>
          <HomeProduct />
-         {/* <SectionTitle>newsletter</SectionTitle> */}
-         {/* <HomeSubscribe /> */}
+         <SectionTitle>newsletter</SectionTitle>
+         <HomeSubscribe />
       </React.Fragment>
    );
 }

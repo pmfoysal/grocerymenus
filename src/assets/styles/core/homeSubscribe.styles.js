@@ -16,25 +16,26 @@ export const HomeSubscribeContent = styled.article`
    border-radius: 3rem;
 
    @media screen and (max-width: 1000px) {
-      padding: 8rem;
-   }
-
-   @media screen and (max-width: 800px) {
       padding: 6rem;
    }
 
-   @media screen and (max-width: 600px) {
+   @media screen and (max-width: 800px) {
       padding: 5rem;
    }
 
-   @media screen and (max-width: 400px) {
+   @media screen and (max-width: 600px) {
       padding: 4rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem;
    }
 `;
 
 export const HomeSubscribeTitle = styled.h1`
    color: ${({theme}) => theme.text.main.head};
    font-size: 2.5rem;
+   text-align: center;
 `;
 
 export const HomeSubscribePara = styled.p`
