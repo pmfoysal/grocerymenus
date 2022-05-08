@@ -6,10 +6,26 @@ export const SignupContainer = styled.section`
 `;
 
 export const SignupContent = styled.article`
-   padding: 8rem 0;
+   padding: 8rem;
    border-radius: 3rem;
    overflow: hidden;
    background-color: ${({theme}) => theme.back.card0};
+
+   @media screen and (max-width: 700px) {
+      padding: 6rem;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 4rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem;
+   }
 `;
 
 export const SignupForm = styled.div`
@@ -25,6 +41,18 @@ export const SignupForm = styled.div`
    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
    border-radius: 2rem;
    z-index: 2;
+
+   @media screen and (max-width: 700px) {
+      width: 100%;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 4rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 3rem;
+   }
 `;
 
 export const SignupHead = styled.h1`
@@ -32,6 +60,10 @@ export const SignupHead = styled.h1`
    text-transform: none;
    line-height: 1;
    color: ${({theme}) => theme.text.main.head};
+
+   @media screen and (max-width: 400px) {
+      margin: 1rem 0;
+   }
 `;
 
 export const SignupTitle = styled.p`
@@ -74,6 +106,10 @@ export const SignupInputGroup = styled.span`
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 2rem;
+
+   @media screen and (max-width: 550px) {
+      grid-template-columns: repeat(1, 1fr);
+   }
 `;
 
 export const SignupButton = styled.button`

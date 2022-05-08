@@ -15,4 +15,9 @@ export const CheckBoxContainer = styled.label`
          font-weight: 550;
       }
    }
+
+   @media screen and (max-width: 350px) {
+      flex-wrap: wrap;
+      justify-content: center;
+   }
 `;
