@@ -3,12 +3,18 @@ import SetTitle from '@helper/setTitle';
 import PageTitle from '@coreComp/pageTitle';
 import useProducts from '@hook/useProducts';
 import EmptyCard from '@coreComp/emptyCard';
+import {useNavigate} from 'react-router-dom';
 import ProductCard from '@coreComp/productCard';
 import MainContainer from '@coreComp/mainContainer';
-import {InventoriesContainer, InventoriesContent, InventoriesProducts} from '@pageStyle/inventories.styles';
+import {InventoriesContainer, InventoriesContent, InventoriesProducts, InventoryAddButton} from '@pageStyle/inventories.styles';
 
 export default function Inventories() {
    const {products, setRender} = useProducts();
+   const navigate = useNavigate();
+
+   function clickHandler() {
+      navigate('/inventory/add');
+   }
 
    return (
       <React.Fragment>
@@ -18,6 +24,7 @@ export default function Inventories() {
                <PageTitle>
                   manage <span>inventories</span>
                </PageTitle>
+               <InventoryAddButton onClick={clickHandler}>add new inventory</InventoryAddButton>
                <InventoriesContent>
                   <InventoriesProducts>
                      {!products.length && <EmptyCard />}
