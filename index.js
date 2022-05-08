@@ -37,6 +37,12 @@ async function runDatabase() {
       const products = client.db('pmphas11').collection('products');
       const blogs = client.db('pmphas11').collection('blogs');
 
+      app.post('/token', async (req, res) => {
+         const user = req.body;
+         const token = jwt.sign(user, process.env.ACCESS_TOKEN, {expiresIn: '1d'});
+         res.send({token});
+      });
+
       app.post('/product', async (req, res) => {
          const newData = req.body;
          const result = await products.insertOne(newData);
