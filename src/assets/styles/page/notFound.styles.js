@@ -13,6 +13,10 @@ export const NotFoundContent = styled.article`
    img {
       width: 78rem;
       height: auto;
+
+      @media screen and (max-width: 1000px) {
+         width: 80%;
+      }
    }
 `;
 
