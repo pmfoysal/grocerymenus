@@ -42,7 +42,7 @@ export const HamIconContainer = styled.nav`
 `;
 
 export const HamIconLine = styled.span`
-   height: 0.2rem;
+   height: 0.3rem;
    width: 3.5rem;
    border-radius: 1rem;
    background-color: ${({theme}) => theme.text.main.head};

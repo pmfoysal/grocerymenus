@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const HomeBannerContainer = styled.section`
    width: 100%;
    height: calc(100vh - 9.5rem);
+
+   @media screen and (max-height: 600px) {
+      height: unset;
+   }
 `;
 
 export const BannerSlide = styled.article`
@@ -32,11 +36,14 @@ export const BannerSlide = styled.article`
       top: 0;
       left: 0;
    }
+
+   @media screen and (max-height: 600px) {
+      padding: 5rem 0;
+   }
 `;
 
 export const BannerContent = styled.div`
    width: 100rem;
-   height: 45rem;
    background-color: rgba(255, 255, 255, 0.75);
    z-index: 5;
    backdrop-filter: blur(0.75rem);
@@ -56,11 +63,31 @@ export const BannerHead = styled.h1`
    padding: 1.5rem 0 2rem;
 
    span {
-      font-size: 7rem;
+      font-size: inherit;
       line-height: 1.2;
       font-weight: inherit;
       font-family: inherit;
       color: ${({theme}) => theme.back.accent};
+   }
+
+   @media screen and (max-width: 750px) {
+      font-size: 6rem;
+   }
+
+   @media screen and (max-width: 560px) {
+      font-size: 5rem;
+   }
+
+   @media screen and (max-width: 450px) {
+      font-size: 4rem;
+   }
+
+   @media screen and (max-width: 375px) {
+      font-size: 3rem;
+   }
+
+   @media screen and (max-width: 320px) {
+      font-size: 2.5rem;
    }
 `;
 
@@ -68,6 +95,14 @@ export const BannerPara = styled.p`
    font-size: 2rem;
    font-weight: 550;
    color: ${({theme}) => theme.text.main.title};
+
+   @media screen and (max-width: 450px) {
+      font-size: 1.8rem;
+   }
+
+   @media screen and (max-width: 350px) {
+      font-size: 1.6rem;
+   }
 `;
 
 export const BannerButton = styled.button`
@@ -91,6 +126,12 @@ export const BannerButton = styled.button`
 
    &:active {
       transform: scale(0.95);
+   }
+
+   @media screen and (max-width: 500px) {
+      height: 4rem;
+      width: 14rem;
+      margin-top: 2rem;
    }
 `;
 
@@ -124,5 +165,23 @@ export const SliderButton = styled.button`
       height: 3.6rem;
       width: auto;
       color: ${({theme}) => theme.text.main.head};
+   }
+
+   @media screen and (max-width: 750px) {
+      height: 5rem;
+      width: 5rem;
+
+      svg {
+         height: 2.5rem;
+      }
+   }
+
+   @media screen and (max-width: 560px) {
+      height: 4rem;
+      width: 4rem;
+
+      svg {
+         height: 2rem;
+      }
    }
 `;

@@ -16,7 +16,7 @@ export default function App() {
          <Header />
          <Suspense fallback={<PageLoader />}>
             <Routes>
-               <Route path='/' index element={''} />
+               <Route path='/' index element={<Home />} />
                <Route path='/about' element={<About />} />
                <Route path='/blogs' element={<Blogs />} />
                <Route path='/signin' element={<Signin />} />
