@@ -1,14 +1,15 @@
-# PmGuide - Real Guide for Travel!
+# GroceryMenus - Modern Inventory Management App!
 
-PmGuide - Your best Travel Guide ever. Please book a date for your next Adventure! Live: https://pmphas11.web.app
+GroceryMenus - Modern Inventory Management Application Designed & Developed by @pmfoysal! Live: https://pmphas11.web.app
 
 ## Description of This Website:
 
--  This is a travel guide website.
--  You can book a date for your favourite place.
--  PmGuide helps you to visit your booked places.
--  You can visit any places safely with me.
--  You can enjoy every moment while travelling.
+-  You Can Manage Your Inventory Products.
+-  You Can Update Your Inventory Products.
+-  You Can Add New Inventory Product.
+-  A Modern Inventory Website.
+-  You Can Signin, Signout, Signup Here.
+-  You Can Manage Your Added Inventories.
 
 ## Technologies used on This Website:
 
