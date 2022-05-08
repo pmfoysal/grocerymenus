@@ -15,6 +15,23 @@ export const ProductCardContainer = styled.summary`
       border-radius: 2rem;
       overflow: hidden;
       padding: 5rem;
+
+      @media screen and (max-width: 500px) {
+         padding: 4rem;
+      }
+
+      @media screen and (max-width: 400px) {
+         padding: 3rem;
+      }
+
+      @media screen and (max-width: 350px) {
+         aspect-ratio: 2/1.75;
+      }
+   }
+
+   @media screen and (max-width: 890px) {
+      max-width: 50rem;
+      width: unset;
    }
 `;
 
@@ -60,6 +77,11 @@ export const ProductCardInfos = styled.div`
    align-items: center;
    gap: 3rem;
    margin-top: 1.5rem;
+
+   @media screen and (max-width: 450px) {
+      gap: 2rem;
+      flex-wrap: wrap;
+   }
 `;
 
 export const ProductCardInfo = styled.div`

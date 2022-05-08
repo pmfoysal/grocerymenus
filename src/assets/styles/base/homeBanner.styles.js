@@ -40,6 +40,14 @@ export const BannerSlide = styled.article`
    @media screen and (max-height: 600px) {
       padding: 5rem 0;
    }
+
+   @media screen and (max-height: 500px) {
+      padding: 4rem 0;
+   }
+
+   @media screen and (max-height: 400px) {
+      padding: 3rem 0;
+   }
 `;
 
 export const BannerContent = styled.div`
