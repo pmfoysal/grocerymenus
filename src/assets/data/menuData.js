@@ -1,7 +1,7 @@
 const menuData = {
    about: [
       {
-         name: 'about me',
+         name: 'about us',
          link: '/about',
       },
       {
@@ -12,33 +12,45 @@ const menuData = {
          name: 'news & blogs',
          link: '/blogs',
       },
+      {
+         name: 'awards',
+         link: '/awards',
+      },
    ],
    movement: [
       {
-         name: 'why travelious',
+         name: 'why grocery',
          link: '/whatis',
       },
       {
-         name: 'support me',
+         name: 'support us',
          link: '/support',
       },
       {
          name: 'feedback',
          link: '/feedback',
       },
+      {
+         name: 'press release',
+         link: '/press',
+      },
    ],
    services: [
       {
-         name: 'my services',
+         name: 'our services',
          link: '/services',
       },
       {
-         name: 'popular places',
-         link: '/places',
+         name: 'popular inventories',
+         link: '/inventories/popular',
       },
       {
-         name: 'most visited',
-         link: '/visited',
+         name: 'best supplier',
+         link: '/suppliers',
+      },
+      {
+         name: 'affiliate program',
+         link: '/affiliate',
       },
    ],
    conditions: [
@@ -49,6 +61,10 @@ const menuData = {
       {
          name: 'privacy policy',
          link: '/privacy',
+      },
+      {
+         name: 'delivery terms',
+         link: '/terms/delivery',
       },
       {
          name: 'security',

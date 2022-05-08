@@ -38,6 +38,11 @@ export const MegaFooterIconArea = styled.nav`
    align-items: flex-start;
    grid-column: span 2;
 
+   img {
+      width: 18rem;
+      height: auto;
+   }
+
    p {
       color: ${({theme}) => theme.text.main.para};
       max-width: 35rem;

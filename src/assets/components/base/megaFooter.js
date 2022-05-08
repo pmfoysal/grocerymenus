@@ -20,8 +20,8 @@ export default function MegaFooter() {
             <MegaFooterIconArea>
                <Logo />
                <p>
-                  My mission is to make everyone able to feel the attachment back to nature by providing an unforgettable
-                  experience!
+                  Suitable for Grocery Market, Store, Organic Food, Online Shop, Agriculture and Natural Foods related management
+                  Website.
                </p>
             </MegaFooterIconArea>
             {generateMenu(menuData)}

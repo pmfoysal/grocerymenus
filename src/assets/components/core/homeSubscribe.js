@@ -16,7 +16,7 @@ export default function HomeSubscribe() {
             <HomeSubscribeContent>
                <HomeSubscribeTitle>subscribe for newsletter</HomeSubscribeTitle>
                <HomeSubscribePara>
-                  Subscribe and find super attractive price quotes from me. I wait for you at the best destinations.
+                  Subscribe and find super attractive price quotes from us. We will inform the best offer for you.
                </HomeSubscribePara>
                <HomeSubscribeInputArea>
                   <input type='email' required placeholder='your email address' />
