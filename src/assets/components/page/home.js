@@ -12,12 +12,12 @@ export default function Home() {
          <HomeBanner />
          <SectionTitle>features</SectionTitle>
          <HomeFeature />
-         {/* <SectionTitle>categories</SectionTitle>
+         <SectionTitle>categories</SectionTitle>
          <HomeCategory />
          <SectionTitle>inventories</SectionTitle>
-         <HomeProduct />
-         <SectionTitle>newsletter</SectionTitle>
-         <HomeSubscribe /> */}
+         {/* <HomeProduct /> */}
+         {/* <SectionTitle>newsletter</SectionTitle> */}
+         {/* <HomeSubscribe /> */}
       </React.Fragment>
    );
 }
