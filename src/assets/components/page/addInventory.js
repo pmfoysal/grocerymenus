@@ -40,6 +40,7 @@ export default function AddInventory() {
    function getData() {
       return {
          email: user.email,
+         date: Date.now(),
          title,
          price,
          quantity,
