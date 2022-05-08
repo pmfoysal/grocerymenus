@@ -1,5 +1,5 @@
 {
-   "name": "server-side",
+   "name": "grocerymenus",
    "private": true,
    "version": "1.0.0",
    "main": "index.js",
