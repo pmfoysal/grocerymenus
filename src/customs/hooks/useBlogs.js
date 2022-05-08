@@ -9,5 +9,5 @@ export default function useBlogs() {
       axios.get(url).then(result => setBlogs(result.data));
    }, []);
 
-   return [blogs, setBlogs];
+   return {blogs};
 }

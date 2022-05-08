@@ -1,10 +1,12 @@
+import useBlog from '@hook/useBlog';
 import {Icon} from '@iconify/react';
 import SetTitle from '@helper/setTitle';
 import {useParams} from 'react-router-dom';
 import PageTitle from '@coreComp/pageTitle';
 import ImgLoader from '@baseComp/imgLoader';
+import PageLoader from '@baseComp/pageLoader';
+import React, {useEffect, useRef} from 'react';
 import MainContainer from '@coreComp/mainContainer';
-import React, {useEffect, useRef, useState} from 'react';
 import {
    BlogDetailsContainer,
    BlogDetailsContent,
@@ -13,22 +15,16 @@ import {
    BlogDetailsLine,
    BlogDetailsTitle,
 } from '@pageStyle/blogDetails.styles';
-import axios from 'axios';
 
 export default function BlogDetails() {
    const descRef = useRef();
    const {id: blogId} = useParams();
-   const [blog, setBlog] = useState({});
+   const {blog} = useBlog(blogId);
    const {author, date, title, image, body} = blog;
 
    useEffect(() => {
       descRef.current.innerHTML = body || 'Amazing blog description goes here...';
    }, [body]);
-
-   useEffect(() => {
-      const url = `https://pmphas11.herokuapp.com/blog/${blogId}`;
-      axios.get(url).then(result => setBlog(result.data));
-   }, [blogId]);
 
    return (
       <React.Fragment>
@@ -39,6 +35,7 @@ export default function BlogDetails() {
                   <PageTitle>
                      blog <span>details!</span>
                   </PageTitle>
+                  {!blog._id && <PageLoader />}
                   <ImgLoader src={image || 'https://raw.githubusercontent.com/pmfoysal/data/main/images/blog-001.jpg'} />
                   <BlogDetailsTitle>{title || 'Amazing Blog Title Goes Here...'}</BlogDetailsTitle>
                   <BlogDetailsInfo>

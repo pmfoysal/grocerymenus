@@ -8,7 +8,7 @@ import MainContainer from '@coreComp/mainContainer';
 import {BlogsContainer, BlogsContent} from '@pageStyle/blogs.styles';
 
 export default function Blogs() {
-   const [blogs] = useBlogs();
+   const {blogs} = useBlogs();
    return (
       <React.Fragment>
          <SetTitle title='Blogs - Latest Blogs Archived' />
