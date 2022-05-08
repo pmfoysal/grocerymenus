@@ -1,12 +1,15 @@
 import React, {useContext} from 'react';
 import PageTitle from '@coreComp/pageTitle';
+import EmptyCard from '@coreComp/emptyCard';
 import ProductCard from '@coreComp/productCard';
 import MainContainer from '@coreComp/mainContainer';
 import {StoreContext} from '@context/storeProvider';
+import useUserProducts from '@hook/useUserProducts';
 import {InventoriesContainer, InventoriesContent, InventoriesProducts} from '@pageStyle/inventories.styles';
 
 export default function UserInventories() {
    const {user} = useContext(StoreContext);
+   const {products, setRender} = useUserProducts(user.email);
 
    return (
       <InventoriesContainer>
@@ -16,15 +19,10 @@ export default function UserInventories() {
             </PageTitle>
             <InventoriesContent>
                <InventoriesProducts>
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
+                  {!products.length && <EmptyCard />}
+                  {products.map(data => (
+                     <ProductCard data={data} key={data._id} setRender={setRender} />
+                  ))}
                </InventoriesProducts>
             </InventoriesContent>
          </MainContainer>

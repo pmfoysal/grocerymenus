@@ -1,5 +1,7 @@
-import axios from 'axios';
 import {useEffect, useState} from 'react';
+import pmAxios from 'customs/middlewares/pmAxios';
+import {toast} from 'react-toastify';
+import userSignout from '@auth/userSignout';
 
 export default function useUserProducts(email) {
    const [products, setProducts] = useState([]);
@@ -7,7 +9,13 @@ export default function useUserProducts(email) {
 
    useEffect(() => {
       const url = `https://pmphas11.herokuapp.com/products/${email}`;
-      axios.get(url).then(result => setProducts(result.data));
+      pmAxios
+         .get(url)
+         .then(result => setProducts(result.data))
+         .catch(error => {
+            userSignout();
+            toast.error(error.message);
+         });
    }, [render]);
 
    return {products, setRender};
