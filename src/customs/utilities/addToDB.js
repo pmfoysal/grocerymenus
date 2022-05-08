@@ -7,7 +7,7 @@ export default function addToDB(data, resetter) {
    axios
       .post(url, data)
       .then(result => {
-         if (result.data.insertedId) {
+         if (result.data.acknowledged) {
             toast.update(id, {
                render: 'Your product successfully added!',
                type: 'success',

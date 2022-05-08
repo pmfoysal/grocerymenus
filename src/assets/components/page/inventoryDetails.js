@@ -5,6 +5,8 @@ import useProduct from '@hook/useProduct';
 import {useParams} from 'react-router-dom';
 import ImgLoader from '@baseComp/imgLoader';
 import PageTitle from '@coreComp/pageTitle';
+import updateToDB from '@utility/updateToDB';
+import PageLoader from '@baseComp/pageLoader';
 import SectionTitle from '@coreComp/sectionTitle';
 import MainContainer from '@coreComp/mainContainer';
 import {
@@ -22,10 +24,11 @@ import {
    InventoryUpdateButton,
    InventoryUpdateButtons,
 } from '@pageStyle/inventoryDetails.styles';
+import validateNumber from '@utility/validateNumber';
 
 export default function InventoryDetails() {
    const {id: urlId} = useParams();
-   const {product} = useProduct(urlId);
+   const {product, setRender} = useProduct(urlId);
    const [restock, setRestock] = useState('');
    const {_id, title, email, date, price, quantity, unit, details, supplier, image} = product;
    const stock = Boolean(quantity);
@@ -34,12 +37,21 @@ export default function InventoryDetails() {
       setRestock(event.target.value);
    }
 
+   function restockHandler() {
+      const isOk = validateNumber(restock, 'quantity');
+      if (isOk) {
+         const data = {quantity: Number(quantity) + Number(restock)};
+         updateToDB(_id, data, setRender, setRestock);
+      }
+   }
+
    return (
       <InventoryDetailsContainer>
          <MainContainer>
             <PageTitle>
                inventory <span>details</span>
             </PageTitle>
+            {!product._id && <PageLoader />}
             <InventoryDetailsArea>
                <InventoryImageArea>
                   <ImgLoader src={image} />
@@ -96,7 +108,9 @@ export default function InventoryDetails() {
                </InventoryUpdateButtons>
                <InventoryUpdateButtons>
                   <InputBox name='quantity' type='number' handler={inputRestock} value={restock} />
-                  <InventoryUpdateButton reset>restock</InventoryUpdateButton>
+                  <InventoryUpdateButton onClick={restockHandler} reset>
+                     restock
+                  </InventoryUpdateButton>
                </InventoryUpdateButtons>
             </InventoryUpdateArea>
          </MainContainer>
