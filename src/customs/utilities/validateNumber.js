@@ -9,7 +9,7 @@ export default function validateNumber(text, name) {
       toast.error(`Please provide valid ${name}!`, {autoClose: 3000});
       return false;
    }
-   for (const char of text) {
+   for (const char of String(text)) {
       if (isNaN(char)) {
          toast.error(`${name} should only be a Number!`, {autoClose: 3000});
          return false;

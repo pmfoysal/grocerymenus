@@ -1,4 +1,5 @@
 import {Icon} from '@iconify/react';
+import {toast} from 'react-toastify';
 import React, {useState} from 'react';
 import InputBox from '@coreComp/inputBox';
 import useProduct from '@hook/useProduct';
@@ -9,6 +10,7 @@ import updateToDB from '@utility/updateToDB';
 import PageLoader from '@baseComp/pageLoader';
 import SectionTitle from '@coreComp/sectionTitle';
 import MainContainer from '@coreComp/mainContainer';
+import validateNumber from '@utility/validateNumber';
 import {
    InventoryDetailsArea,
    InventoryDetailsContainer,
@@ -24,13 +26,12 @@ import {
    InventoryUpdateButton,
    InventoryUpdateButtons,
 } from '@pageStyle/inventoryDetails.styles';
-import validateNumber from '@utility/validateNumber';
-import {toast} from 'react-toastify';
 
 export default function InventoryDetails() {
    const {id: urlId} = useParams();
    const {product, setRender} = useProduct(urlId);
    const [restock, setRestock] = useState('');
+   const [disable, setDisable] = useState(false);
    const {_id, title, email, date, price, quantity, unit, details, supplier, image} = product;
    const stock = Boolean(quantity);
 
@@ -41,7 +42,7 @@ export default function InventoryDetails() {
    function deliveredHandler() {
       const numQuan = Number(quantity);
       if (numQuan > 0) {
-         updateToDB(_id, {quantity: numQuan - 1}, setRender);
+         updateToDB(_id, {quantity: numQuan - 1}, setRender, undefined, setDisable);
       } else {
          toast.error('Please restock the product quantity!', {autoClose: 3000});
       }
@@ -51,7 +52,7 @@ export default function InventoryDetails() {
       const isOk = validateNumber(restock, 'quantity');
       if (isOk) {
          const data = {quantity: Number(quantity) + Number(restock)};
-         updateToDB(_id, data, setRender, setRestock);
+         updateToDB(_id, data, setRender, setRestock, setDisable);
       }
    }
 
@@ -114,11 +115,13 @@ export default function InventoryDetails() {
             <InventoryUpdateArea>
                <InventoryUpdateButtons>
                   <InputBox type='text' value={`inStock:  ${quantity}`} readOnly />
-                  <InventoryUpdateButton onClick={deliveredHandler}>delivered</InventoryUpdateButton>
+                  <InventoryUpdateButton onClick={deliveredHandler} disabled={disable}>
+                     delivered
+                  </InventoryUpdateButton>
                </InventoryUpdateButtons>
                <InventoryUpdateButtons>
                   <InputBox name='quantity' type='number' handler={inputRestock} value={restock} />
-                  <InventoryUpdateButton onClick={restockHandler} reset>
+                  <InventoryUpdateButton onClick={restockHandler} disabled={disable} reset>
                      restock
                   </InventoryUpdateButton>
                </InventoryUpdateButtons>

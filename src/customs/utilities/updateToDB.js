@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {toast} from 'react-toastify';
 
-export default function updateToDB(id, data, reloader, resetter) {
+export default function updateToDB(id, data, reloader, resetter, disabler) {
+   if (disabler) disabler(true);
    const tId = toast.loading('Updating to Database! Please wait...');
    const url = `https://pmphas11.herokuapp.com/product/${id}`;
    axios
@@ -17,6 +18,7 @@ export default function updateToDB(id, data, reloader, resetter) {
             });
             reloader(Math.random().toFixed(2));
             if (resetter) resetter('');
+            if (disabler) disabler(false);
          }
       })
       .catch(error => {

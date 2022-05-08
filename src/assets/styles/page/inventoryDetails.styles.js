@@ -279,11 +279,16 @@ export const InventoryUpdateButton = styled.button`
    border-radius: 1rem;
    transition: 0.1s ease;
 
-   &:hover {
+   &:hover:not(:disabled) {
       opacity: 0.85;
    }
 
-   &:active {
+   &:active:not(:disabled) {
       transform: scale(0.95);
+   }
+
+   &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
    }
 `;
