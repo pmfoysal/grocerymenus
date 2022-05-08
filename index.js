@@ -1,6 +1,7 @@
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const {MongoClient, ServerApiVersion, ObjectId} = require('mongodb');
 
 const app = express();
@@ -14,6 +15,21 @@ const corsOptions = {
 
 app.use(express.json());
 app.use(cors(corsOptions));
+
+function verifyUser(req, res, next) {
+   const auth = req.headers.authorization;
+   const res1 = {status: 401, message: "You don't have Authorization to access this API!"};
+   const res2 = {status: 403, message: 'You have invalid Token to access this API!'};
+
+   if (!auth) return res.status(401).send(res1);
+   const token = auth.split(' ')[1];
+
+   jwt.verify(token, process.env.ACCESS_TOKEN, (error, decoded) => {
+      if (error) return res.status(403).send(res2);
+      req.decoded = decoded;
+      next();
+   });
+}
 
 async function runDatabase() {
    try {
