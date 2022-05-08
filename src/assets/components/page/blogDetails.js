@@ -35,10 +35,10 @@ export default function BlogDetails() {
          <SetTitle title={'Blogs - ' + (title || 'Amazing Blog Title Goes Here...')} />
          <BlogDetailsContainer>
             <MainContainer>
-               <PageTitle>
-                  blog <span>details!</span>
-               </PageTitle>
                <BlogDetailsContent>
+                  <PageTitle>
+                     blog <span>details!</span>
+                  </PageTitle>
                   <ImgLoader src={image || 'https://raw.githubusercontent.com/pmfoysal/data/main/images/blog-001.jpg'} />
                   <BlogDetailsTitle>{title || 'Amazing Blog Title Goes Here...'}</BlogDetailsTitle>
                   <BlogDetailsInfo>

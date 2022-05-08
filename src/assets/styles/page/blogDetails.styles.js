@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 export const BlogDetailsContainer = styled.section`
    padding-bottom: 8rem;
-
-   & > * {
-      max-width: 120rem;
-   }
 `;
 
 export const BlogDetailsContent = styled.article`
+   max-width: 120rem;
+   margin: 0 auto;
+
    figure {
       width: 100%;
       margin: 0 auto;
@@ -17,6 +16,10 @@ export const BlogDetailsContent = styled.article`
       border-radius: 2rem;
       overflow: hidden;
       background-color: ${({theme}) => theme.back.card1};
+
+      @media screen and (max-width: 450px) {
+         aspect-ratio: 2/1.5;
+      }
    }
 `;
 
@@ -30,8 +33,9 @@ export const BlogDetailsTitle = styled.h1`
 export const BlogDetailsInfo = styled.div`
    display: flex;
    align-items: center;
-   gap: 1.5rem;
+   gap: 1rem;
    padding: 1.5rem 0;
+   flex-wrap: wrap;
 
    p {
       display: flex;
