@@ -13,6 +13,26 @@ export const InventoryDetailsArea = styled.div`
    align-items: center;
    justify-content: center;
    flex-direction: column;
+
+   @media screen and (max-width: 700px) {
+      padding: 6rem;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 4rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem;
+   }
+
+   @media screen and (max-width: 300px) {
+      padding: 2.5rem;
+   }
 `;
 
 export const InventoryImageArea = styled.div`
@@ -32,6 +52,45 @@ export const InventoryImageArea = styled.div`
       background-color: ${({theme}) => theme.back.card0};
       border-radius: 2rem;
       padding: 5rem;
+
+      @media screen and (max-width: 900px) {
+         width: 100%;
+         height: auto;
+      }
+
+      @media screen and (max-width: 700px) {
+         padding: 4rem;
+      }
+
+      @media screen and (max-width: 500px) {
+         padding: 3rem;
+      }
+
+      @media screen and (max-width: 400px) {
+         padding: 2.5rem;
+      }
+   }
+
+   @media screen and (max-width: 1250px) {
+      width: 100%;
+   }
+
+   @media screen and (max-width: 900px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 700px) {
+      padding: 4rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 3rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 2.5rem;
    }
 `;
 
@@ -43,6 +102,11 @@ export const InventoryDetailsInfos = styled.div`
 
    & > *:last-child {
       grid-column: span 2;
+   }
+
+   @media screen and (max-width: 1150px) {
+      display: flex;
+      flex-direction: column;
    }
 `;
 
@@ -64,11 +128,19 @@ export const InventoryDetailsTitle = styled.h1`
       width: 10rem;
       background-color: ${({theme}) => theme.back.card2};
    }
+
+   @media screen and (max-width: 1250px) {
+      width: 100%;
+   }
 `;
 
 export const InventoryDetailsPara = styled.p`
    color: ${({theme}) => theme.text.main.para};
    width: 100rem;
+
+   @media screen and (max-width: 1250px) {
+      width: 100%;
+   }
 `;
 
 export const InventoryDetailsInfo = styled.span`
@@ -89,6 +161,10 @@ export const InventoryDetailsTag = styled.p`
       font-weight: 400;
       line-height: inherit;
       white-space: nowrap;
+
+      @media screen and (max-width: 400px) {
+         white-space: pre-wrap;
+      }
    }
 
    .price {
@@ -143,6 +219,31 @@ export const InventoryUpdateArea = styled.div`
    align-items: center;
    justify-content: center;
    gap: 5rem;
+
+   @media screen and (max-width: 750px) {
+      flex-wrap: wrap;
+   }
+
+   @media screen and (max-width: 700px) {
+      flex-wrap: wrap;
+      padding: 6rem;
+   }
+
+   @media screen and (max-width: 600px) {
+      padding: 5rem;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 4rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding: 3rem;
+   }
+
+   @media screen and (max-width: 300px) {
+      padding: 2.5rem;
+   }
 `;
 
 export const InventoryUpdateButtons = styled.div`
@@ -159,6 +260,12 @@ export const InventoryUpdateButtons = styled.div`
 
    div {
       width: 17rem;
+   }
+
+   @media screen and (max-width: 800px) {
+      width: 100%;
+      height: unset;
+      padding: 5rem;
    }
 `;
 

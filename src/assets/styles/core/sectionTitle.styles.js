@@ -11,6 +11,7 @@ export const SectionTitleContainer = styled.div`
 export const SectionTitleText = styled.h1`
    display: inline-block;
    font-size: 4rem;
+   text-align: center;
    color: ${({theme}) => theme.text.main.para};
    line-height: 1;
    padding-top: 1rem;
