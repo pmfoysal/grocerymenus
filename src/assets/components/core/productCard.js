@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
 import {Icon} from '@iconify/react';
-import image from '@image/product.png';
+import React, {useState} from 'react';
+import Confirm from '@baseComp/confirm';
 import ImgLoader from '@baseComp/imgLoader';
 import {useNavigate} from 'react-router-dom';
 import {
@@ -16,19 +16,19 @@ import {
    ProductCardTexts,
    ProductCardTitle,
 } from '@coreStyle/productCard.styles';
-import Confirm from '@baseComp/confirm';
 
-export default function ProductCard({home, handler}) {
-   const stock = true;
+export default function ProductCard({home, data}) {
    const navigate = useNavigate();
    const [active, setActive] = useState(false);
+   const {_id, title, price, quantity, unit, details, supplier, image} = data;
+   const stock = Boolean(quantity);
 
    function editHandler() {
-      navigate('/inventory/edit/idhere');
+      navigate(`/inventory/edit/${_id}`);
    }
 
    function updateHandler() {
-      navigate('/inventory/idhere');
+      navigate(`/inventory/${_id}`);
    }
 
    function deleteHandler() {
@@ -39,23 +39,24 @@ export default function ProductCard({home, handler}) {
       <ProductCardContainer>
          <ImgLoader src={image} />
          <ProductCardTexts>
-            <ProductCardTitle>spicy tomato</ProductCardTitle>
-            <ProductCardDesc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis! (95)</ProductCardDesc>
+            <ProductCardTitle>{title}</ProductCardTitle>
+            <ProductCardDesc>{details.slice(0, 95) + '...'}</ProductCardDesc>
             <ProductCardInfos>
                <ProductCardInfo>
                   <ProductCardPrice>
                      price:{' '}
                      <span>
-                        $30.00<span>/kg</span>
+                        ${Number(price).toFixed(2)}
+                        <span>/{unit}</span>
                      </span>
                   </ProductCardPrice>
                   <ProductCardPara>
-                     supplier: <span>google</span>
+                     supplier: <span>{supplier}</span>
                   </ProductCardPara>
                </ProductCardInfo>
                <ProductCardInfo>
                   <ProductCardPara>
-                     quantity: <span>20</span>
+                     quantity: <span>{quantity}</span>
                   </ProductCardPara>
                   <ProductCardStock stock={stock}>
                      {stock ? (
@@ -89,7 +90,7 @@ export default function ProductCard({home, handler}) {
                button='delete'
                message={`Are you sure you want to delete it? Once deleted, this item can't be possible to bring back again!`}
                setActive={setActive}
-               id={20}
+               id={_id}
             />
          )}
       </ProductCardContainer>

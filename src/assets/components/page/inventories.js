@@ -1,10 +1,13 @@
 import React from 'react';
 import PageTitle from '@coreComp/pageTitle';
+import useProducts from '@hook/useProducts';
 import ProductCard from '@coreComp/productCard';
 import MainContainer from '@coreComp/mainContainer';
 import {InventoriesContainer, InventoriesContent, InventoriesProducts} from '@pageStyle/inventories.styles';
 
 export default function Inventories() {
+   const {products} = useProducts();
+
    return (
       <InventoriesContainer>
          <MainContainer>
@@ -13,15 +16,9 @@ export default function Inventories() {
             </PageTitle>
             <InventoriesContent>
                <InventoriesProducts>
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
-                  <ProductCard />
+                  {products.map(data => (
+                     <ProductCard data={data} key={data._id} />
+                  ))}
                </InventoriesProducts>
             </InventoriesContent>
          </MainContainer>
