@@ -1,3 +1,4 @@
+import getToken from './getToken';
 import {toast} from 'react-toastify';
 import {getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification} from 'firebase/auth';
 
@@ -7,12 +8,12 @@ export default function emailPassSignup(data) {
    const {email, password} = data;
    const id = toast.loading('Wait... Connecting to the server!');
    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
+      .then(result => {
          const options = {
             render: 'Account created! Now Updating...!',
          };
          toast.update(id, options);
-         updateUserProfile(data, id);
+         updateUserProfile(result, data, id);
       })
       .catch(error => {
          const options = {
@@ -25,7 +26,7 @@ export default function emailPassSignup(data) {
       });
 }
 
-function updateUserProfile(data, id) {
+function updateUserProfile(result, data, id) {
    const {firstName, lastName, profilePic} = data;
    updateProfile(auth.currentUser, {
       displayName: `${firstName} ${lastName}`,
@@ -36,7 +37,7 @@ function updateUserProfile(data, id) {
             render: 'Profile Updated! Now sending verification...',
          };
          toast.update(id, options);
-         verifyUserEmail(id);
+         verifyUserEmail(result, id);
       })
       .catch(error => {
          const options = {
@@ -49,14 +50,11 @@ function updateUserProfile(data, id) {
       });
 }
 
-function verifyUserEmail(id) {
+function verifyUserEmail(result, id) {
    sendEmailVerification(auth.currentUser).then(() => {
-      const options = {
-         render: 'Your account verification email sent!',
-         type: 'success',
-         isLoading: false,
-         autoClose: 3000,
-      };
-      toast.update(id, options);
+      toast.update(id, {
+         render: 'Verification Sent! Now getting access token...!',
+      });
+      getToken(result, id);
    });
 }
