@@ -138,6 +138,10 @@ export const ProductCardButtons = styled.span`
    gap: 1rem;
    width: 100%;
    margin-top: 2.5rem;
+
+   @media screen and (max-width: 450px) {
+      flex-wrap: wrap;
+   }
 `;
 
 export const ProductCardButton = styled.button`

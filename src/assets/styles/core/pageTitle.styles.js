@@ -15,4 +15,16 @@ export const PageTitleContainer = styled.h1`
       font-family: inherit;
       font-weight: inherit;
    }
+
+   @media screen and (max-width: 450px) {
+      font-size: 4rem;
+   }
+
+   @media screen and (max-width: 400px) {
+      font-size: 3.5rem;
+   }
+
+   @media screen and (max-width: 350px) {
+      font-size: 3rem;
+   }
 `;

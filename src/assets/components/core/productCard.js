@@ -2,6 +2,7 @@ import React from 'react';
 import {Icon} from '@iconify/react';
 import image from '@image/product.png';
 import ImgLoader from '@baseComp/imgLoader';
+import {useNavigate} from 'react-router-dom';
 import {
    ProductCardButton,
    ProductCardButtons,
@@ -15,7 +16,6 @@ import {
    ProductCardTexts,
    ProductCardTitle,
 } from '@coreStyle/productCard.styles';
-import {useNavigate} from 'react-router-dom';
 
 export default function ProductCard({home}) {
    const stock = true;
