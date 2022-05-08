@@ -51,15 +51,15 @@ export default function UserIcon({user}) {
                <UserIconWindowRole>{role || 'not provided'}</UserIconWindowRole>
                <UserIconWindowMenu>
                   <UserIconWindowItem onClick={linkHandler('/inventories')}>
-                     <Icon icon='fluent:receipt-cube-24-filled' />
-                     all items
+                     <Icon icon='fluent:task-list-square-database-20-filled' />
+                     manage items
                   </UserIconWindowItem>
                   <UserIconWindowItem onClick={linkHandler(`/inventories/${getEmailName(email)}`)}>
-                     <Icon icon='fluent:receipt-bag-24-filled' />
+                     <Icon icon='fluent:collections-add-20-filled' />
                      my items
                   </UserIconWindowItem>
                   <UserIconWindowItem onClick={linkHandler('/inventory/add')}>
-                     <Icon icon='fluent:receipt-add-24-filled' />
+                     <Icon icon='fluent:add-circle-20-filled' />
                      add item
                   </UserIconWindowItem>
                   <UserIconWindowItem onClick={signoutHandler} hovered>

@@ -15,7 +15,7 @@ export default function App() {
       <React.Fragment>
          <Header />
          <Suspense fallback={<PageLoader />}>
-            <Routes>
+            {/* <Routes>
                <Route path='/' index element={<Home />} />
                <Route path='/about' element={<About />} />
                <Route path='/blogs' element={<Blogs />} />
@@ -30,7 +30,7 @@ export default function App() {
                <Route path='/inventories/:user' element={<Private page={UserInventory} />} />
                <Route path='/inventory/edit/:id' element={<Private page={EditInventory} />} />
                <Route path='*' element={<NotFound />} />
-            </Routes>
+            </Routes> */}
             <MegaFooter />
             <Footer />
             <Toaster />

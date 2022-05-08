@@ -14,6 +14,16 @@ export const HeaderContainer = styled.header`
    & > * {
       display: grid;
       grid-template-columns: 25rem 1fr 25rem;
+
+      @media screen and (max-width: 900px) {
+         grid-template-columns: 20rem 1fr 20rem;
+      }
+
+      @media screen and (max-width: 800px) {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+      }
    }
 `;
 

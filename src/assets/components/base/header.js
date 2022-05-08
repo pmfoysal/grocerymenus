@@ -1,8 +1,9 @@
 import Logo from '@coreComp/logo';
 import NavLinks from './navLinks';
-import React, {useContext} from 'react';
+import HamIcon from '@coreComp/hamIcon';
 import UserIcon from '@coreComp/userIcon';
 import {useNavigate} from 'react-router-dom';
+import React, {useContext, useState} from 'react';
 import MainContainer from '@coreComp/mainContainer';
 import {StoreContext} from '@context/storeProvider';
 import {HeaderButton, HeaderButtons, HeaderContainer} from '@baseStyle/header.styles';
@@ -10,6 +11,7 @@ import {HeaderButton, HeaderButtons, HeaderContainer} from '@baseStyle/header.st
 export default function Header() {
    const {user} = useContext(StoreContext);
    const navigate = useNavigate();
+   const [active, setActive] = useState(false);
 
    function clickHandler(link) {
       return function () {
@@ -21,6 +23,7 @@ export default function Header() {
       <HeaderContainer>
          <MainContainer>
             <Logo />
+            <HamIcon active={active} setActive={setActive} />
             <NavLinks user={user} />
             <HeaderButtons>
                {!user.uid ? (

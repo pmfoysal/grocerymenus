@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const UserIconContainer = styled.div`
    display: inline-block;
+
+   @media screen and (max-width: 800px) {
+      display: none;
+   }
 `;
 
 export const UserIconImage = styled.img`
