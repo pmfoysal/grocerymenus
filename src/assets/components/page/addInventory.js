@@ -1,4 +1,5 @@
 import logo from '@image/logo.svg';
+import addToDB from '@utility/addToDB';
 import InputBox from '@coreComp/inputBox';
 import PageTitle from '@coreComp/pageTitle';
 import MessageBox from '@coreComp/messageBox';
@@ -86,7 +87,7 @@ export default function AddInventory() {
 
       if (test1 && test2) {
          const data = getData();
-         console.log(data);
+         addToDB(data, resetData);
       }
    }
 

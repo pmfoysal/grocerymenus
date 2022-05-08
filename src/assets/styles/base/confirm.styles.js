@@ -50,8 +50,8 @@ export const ConfirmButtons = styled.div`
 `;
 
 export const ConfirmButton = styled.button`
-   background-color: ${({theme, danger}) => (danger ? theme.back.accent : theme.text.main.head)};
-   color: ${({theme, danger}) => (danger ? theme.text.main.head : theme.text.sub.head)};
+   background-color: ${({theme, danger}) => (danger ? '#ff4500' : theme.text.main.head)};
+   color: ${({theme}) => theme.text.sub.head};
    height: 3.6rem;
    padding: 0 1.5rem;
    text-transform: capitalize;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Icon} from '@iconify/react';
 import image from '@image/product.png';
 import ImgLoader from '@baseComp/imgLoader';
@@ -16,10 +16,12 @@ import {
    ProductCardTexts,
    ProductCardTitle,
 } from '@coreStyle/productCard.styles';
+import Confirm from '@baseComp/confirm';
 
-export default function ProductCard({home}) {
+export default function ProductCard({home, handler}) {
    const stock = true;
    const navigate = useNavigate();
+   const [active, setActive] = useState(false);
 
    function editHandler() {
       navigate('/inventory/edit/idhere');
@@ -29,7 +31,9 @@ export default function ProductCard({home}) {
       navigate('/inventory/idhere');
    }
 
-   function deleteHandler() {}
+   function deleteHandler() {
+      setActive(true);
+   }
 
    return (
       <ProductCardContainer>
@@ -80,6 +84,14 @@ export default function ProductCard({home}) {
                )}
             </ProductCardButtons>
          </ProductCardTexts>
+         {active && (
+            <Confirm
+               button='delete'
+               message={`Are you sure you want to delete it? Once deleted, this item can't be possible to bring back again!`}
+               setActive={setActive}
+               id={20}
+            />
+         )}
       </ProductCardContainer>
    );
 }

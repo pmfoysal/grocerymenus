@@ -7,9 +7,14 @@ export const MessageBoxInput = styled.textarea`
    border: 0.2rem solid rgba(0, 0, 0, 0.4);
    background-color: transparent;
    padding: 1.5rem;
-   font-weight: 700;
+   line-height: 1.5;
+   font-weight: 550;
    transition: 0.2s ease;
    color: ${({theme}) => theme.text.main.head};
+
+   &::-webkit-scrollbar {
+      width: 0;
+   }
 
    &[data-on='true'] {
       background-color: ${({theme}) => theme.back.page};
