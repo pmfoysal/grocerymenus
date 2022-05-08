@@ -1,5 +1,6 @@
 import React from 'react';
 import useProducts from '@hook/useProducts';
+import EmptyCard from '@coreComp/emptyCard';
 import {useNavigate} from 'react-router-dom';
 import ProductCard from '@coreComp/productCard';
 import MainContainer from '@coreComp/mainContainer';
@@ -17,12 +18,13 @@ export default function HomeProduct() {
       <HomeProductContainer>
          <MainContainer>
             <HomeProductContent>
+               {!products.length && <EmptyCard />}
                <HomeContentProducts>
                   {products.slice(undefined, 6).map(data => (
                      <ProductCard data={data} key={data._id} setRender={setRender} home />
                   ))}
                </HomeContentProducts>
-               <HomeProductButton onClick={clickHandler}>manage inventories</HomeProductButton>
+               {products.length && <HomeProductButton onClick={clickHandler}>manage inventories</HomeProductButton>}
             </HomeProductContent>
          </MainContainer>
       </HomeProductContainer>

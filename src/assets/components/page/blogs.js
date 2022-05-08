@@ -3,6 +3,7 @@ import useBlogs from '@hook/useBlogs';
 import SetTitle from '@helper/setTitle';
 import BlogCard from '@coreComp/blogCard';
 import PageTitle from '@coreComp/pageTitle';
+import EmptyCard from '@coreComp/emptyCard';
 import MainContainer from '@coreComp/mainContainer';
 import {BlogsContainer, BlogsContent} from '@pageStyle/blogs.styles';
 
@@ -17,6 +18,7 @@ export default function Blogs() {
                   latest <span>blogs!</span>
                </PageTitle>
                <BlogsContent>
+                  {!blogs.length && <EmptyCard />}
                   {blogs.map(data => (
                      <BlogCard data={data} key={data._id} />
                   ))}
