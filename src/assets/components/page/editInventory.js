@@ -12,7 +12,7 @@ import MainContainer from '@coreComp/mainContainer';
 import {StoreContext} from '@context/storeProvider';
 import validateNumber from '@utility/validateNumber';
 import {useNavigate, useParams} from 'react-router-dom';
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {
    AddInventoryButton,
    AddInventoryButtons,
@@ -129,9 +129,11 @@ export default function EditInventory() {
       }
    }
 
-   if (product._id) {
-      setData();
-   }
+   useEffect(() => {
+      if (product._id) {
+         setData();
+      }
+   }, [product]);
 
    return (
       <React.Fragment>
