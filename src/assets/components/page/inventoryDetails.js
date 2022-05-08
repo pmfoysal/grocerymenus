@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import SetTitle from '@helper/setTitle';
 import InputBox from '@coreComp/inputBox';
 import useProduct from '@hook/useProduct';
-import {useParams} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import ImgLoader from '@baseComp/imgLoader';
 import PageTitle from '@coreComp/pageTitle';
 import updateToDB from '@utility/updateToDB';
@@ -22,6 +22,7 @@ import {
    InventoryDetailsTag,
    InventoryDetailsTitle,
    InventoryImageArea,
+   InventoryManageButton,
    InventoryName,
    InventoryUpdateArea,
    InventoryUpdateButton,
@@ -30,6 +31,7 @@ import {
 
 export default function InventoryDetails() {
    const {id: urlId} = useParams();
+   const navigate = useNavigate();
    const {product, setRender} = useProduct(urlId);
    const [restock, setRestock] = useState('');
    const [disable, setDisable] = useState(false);
@@ -55,6 +57,10 @@ export default function InventoryDetails() {
          const data = {quantity: Number(quantity) + Number(restock)};
          updateToDB(_id, data, setRender, setRestock, setDisable);
       }
+   }
+
+   function manageHandler() {
+      navigate('/inventories');
    }
 
    return (
@@ -129,6 +135,7 @@ export default function InventoryDetails() {
                      </InventoryUpdateButton>
                   </InventoryUpdateButtons>
                </InventoryUpdateArea>
+               <InventoryManageButton onClick={manageHandler}>manage inventories</InventoryManageButton>
             </MainContainer>
          </InventoryDetailsContainer>
       </React.Fragment>
