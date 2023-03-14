@@ -7,6 +7,9 @@
 
 # testing
 /coverage
+env.txt
+Spacefile
+.space
 
 # production
 /build
