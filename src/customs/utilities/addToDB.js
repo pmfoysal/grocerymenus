@@ -1,9 +1,9 @@
 import axios from 'axios';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function addToDB(data, resetter) {
    const id = toast.loading('Adding to Database! Please wait...');
-   const url = 'https://pmphas11.herokuapp.com/product';
+   const url = 'https://grocerymenus-1-i4533289.deta.app/product';
    axios
       .post(url, data)
       .then(result => {

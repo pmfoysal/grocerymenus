@@ -1,9 +1,9 @@
 import axios from 'axios';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function deleteFromDB(id, reloader) {
    const tId = toast.loading('Deleting from Database! Please wait...');
-   const url = `https://pmphas11.herokuapp.com/product/${id}`;
+   const url = `https://grocerymenus-1-i4533289.deta.app/product/${id}`;
    axios
       .delete(url)
       .then(result => {

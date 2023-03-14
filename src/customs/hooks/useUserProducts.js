@@ -1,6 +1,6 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import pmAxios from 'customs/middlewares/pmAxios';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import userSignout from '@auth/userSignout';
 
 export default function useUserProducts(email) {
@@ -8,7 +8,7 @@ export default function useUserProducts(email) {
    const [render, setRender] = useState(0);
 
    useEffect(() => {
-      const url = `https://pmphas11.herokuapp.com/products/${email}`;
+      const url = `https://grocerymenus-1-i4533289.deta.app/products/${email}`;
       pmAxios
          .get(url)
          .then(result => setProducts(result.data))
@@ -18,5 +18,5 @@ export default function useUserProducts(email) {
          });
    }, [render, email]);
 
-   return {products, setRender};
+   return { products, setRender };
 }

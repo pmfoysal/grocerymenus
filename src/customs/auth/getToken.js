@@ -1,11 +1,11 @@
 import axios from 'axios';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function getToken(result, id) {
    const email = result.user.email;
-   const url = `https://pmphas11.herokuapp.com/token`;
+   const url = `https://grocerymenus-1-i4533289.deta.app/token`;
    axios
-      .post(url, {email})
+      .post(url, { email })
       .then(result => {
          const token = result.data.token;
          window.localStorage.setItem('bearer', token);

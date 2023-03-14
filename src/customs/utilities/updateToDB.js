@@ -1,10 +1,10 @@
 import axios from 'axios';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function updateToDB(id, data, reloader, resetter, disabler) {
    if (disabler) disabler(true);
    const tId = toast.loading('Updating to Database! Please wait...');
-   const url = `https://pmphas11.herokuapp.com/product/${id}`;
+   const url = `https://grocerymenus-1-i4533289.deta.app/product/${id}`;
    axios
       .put(url, data)
       .then(result => {
