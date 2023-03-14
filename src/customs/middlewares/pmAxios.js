@@ -6,6 +6,7 @@ pmAxios.interceptors.request.use(
    function (config) {
       if (!config.headers.authorization) {
          config.headers.authorization = `Bearer ${window.localStorage.getItem('bearer')}`;
+         config.headers['X-API-Key'] = process.env.REACT_APP_apiToken;
       }
       return config;
    },

@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import pmAxios from 'customs/middlewares/pmAxios';
 
 export default function useProduct(id) {
    const [product, setProduct] = useState({});
@@ -7,7 +7,7 @@ export default function useProduct(id) {
 
    useEffect(() => {
       const url = `https://grocerymenus-1-i4533289.deta.app/product/${id}`;
-      axios.get(url).then(result => setProduct(result.data));
+      pmAxios.get(url).then(result => setProduct(result.data));
    }, [render, id]);
 
    return { product, setRender };
